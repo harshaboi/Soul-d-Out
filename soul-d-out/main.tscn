@@ -1,15 +1,15 @@
 [gd_scene load_steps=101 format=4 uid="uid://dcc1hh0uraw5v"]
 
-[ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://character_body_2d.gd" id="1_4lmeg"]
+[ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://Scripts/character_body_2d.gd" id="1_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://bh260vne7tf3c" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_h8e4i"]
-[ext_resource type="Texture2D" uid="uid://dbxbqwloxynlx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_1.png" id="2_0cp0l"]
-[ext_resource type="Texture2D" uid="uid://ddmbj5skwh0gx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_0.png" id="2_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://dbxbqwloxynlx" path="res://Sprites/Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_1.png" id="2_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://ddmbj5skwh0gx" path="res://Sprites/Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_0.png" id="2_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dp46nv3nwuobc" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_8_16x16.png" id="2_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://3kea2g2ebbxj" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_9_16x16.png" id="3_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://bpes2eanco3ys" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_10_16x16.png" id="4_d2t1y"]
-[ext_resource type="Texture2D" uid="uid://0jbu71jhvym4" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_2.png" id="4_qnost"]
+[ext_resource type="Texture2D" uid="uid://0jbu71jhvym4" path="res://Sprites/Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_2.png" id="4_qnost"]
 [ext_resource type="Texture2D" uid="uid://bps3e4yd0n60i" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_11_16x16.png" id="5_gngh3"]
-[ext_resource type="Texture2D" uid="uid://hxkf1exf41kx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_3.png" id="5_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://hxkf1exf41kx" path="res://Sprites/Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_3.png" id="5_wnkbs"]
 [ext_resource type="Texture2D" uid="uid://48jhpffcj1hf" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_12_16x16.png" id="6_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://bjwy8p6mr60t6" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_13_16x16.png" id="7_qnost"]
 [ext_resource type="Texture2D" uid="uid://brvfiixjepdg7" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_14_16x16.png" id="8_wnkbs"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://c6vu0ibbe6lo7" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_5_16x16.png" id="38_gx4rg"]
 [ext_resource type="Texture2D" uid="uid://butokxkqc0kyh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_6_16x16.png" id="39_5dllo"]
 [ext_resource type="Texture2D" uid="uid://c8da1nibnglnh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_7_16x16.png" id="40_phcyf"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://ciwvwpt8x466k" path="res://area_2d.gd" id="46_wnkbs"]
 [ext_resource type="Texture2D" uid="uid://lsltfiw5l880" path="res://pixel_houses/pixel_houses/house1/house1_complete.png" id="47_f6a44"]
 [ext_resource type="Script" uid="uid://dhibcg2qriwib" path="res://SoulMeter.gd" id="49_abqjc"]
@@ -55,9 +56,14 @@
 [ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="54_vke2r"]
 [ext_resource type="Script" uid="uid://d13h7hjh7hjty" path="res://CoinLabel.gd" id="55_4w656"]
 [ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="55_uit24"]
+=======
+[ext_resource type="Script" uid="uid://ciwvwpt8x466k" path="res://Scripts/area_2d.gd" id="46_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://lsltfiw5l880" path="res://Sprites/pixel_houses/pixel_houses/house1/house1_complete.png" id="47_f6a44"]
+>>>>>>> 2f41f29917f4f80128a735501f88287c8467c178
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnkbs"]
 size = Vector2(64, 52)
+[ext_resource type="Texture2D" uid="uid://cjvebg8r8pb4q" path="res://bghill.jpeg" id="46_qnost"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t1y"]
 size = Vector2(42, 27)
@@ -353,6 +359,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+<<<<<<< HEAD
 tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAQAAYAAQAAAAAAAAAPAAYAAQAAAAAAAAAOAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAD//wYAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD//wUAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAUAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAAVAAYAAQAAAAAAAAAWAAYAAQAAAAAAAAAXAAYAAQAAAAAAAAAYAAYAAQAAAAAAAAAZAAYAAQAAAAAAAAAaAAYAAQAAAAAAAAAbAAYAAQAAAAAAAAAcAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAfAAYAAQAAAAAAAAAgAAYAAQAAAAAAAAAhAAYAAQAAAAAAAAAhAAUAAQAAAAAAAAAgAAUAAQAAAAAAAAAfAAUAAQAAAAAAAAAeAAUAAQAAAAAAAAAdAAUAAQAAAAAAAAAcAAUAAQAAAAAAAAAbAAUAAQAAAAAAAAAaAAUAAQAAAAAAAAAZAAUAAQAAAAAAAAAYAAUAAQAAAAAAAAAXAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAaAAQAAQAAAAAAAAAaAAMAAQAAAAAAAAAaAAIAAQAAAAAAAAAaAAEAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAP//AQAAAAAAAAAZAAIAAQAAAAAAAAAZAAMAAQAAAAAAAAAZAAQAAQAAAAAAAAAYAAQAAQAAAAAAAAAbAAQAAQAAAAAAAAAbAAMAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAAbAP//AQAAAAAAAAAbAP7/AQAAAAAAAAAbAP3/AQAAAAAAAAAbAPz/AQAAAAAAAAAfAAQAAQAAAAAAAAAfAAMAAQAAAAAAAAAfAAIAAQAAAAAAAAAfAAEAAQAAAAAAAAAfAAAAAQAAAAAAAAAfAP//AQAAAAAAAAAfAP7/AQAAAAAAAAAfAP3/AQAAAAAAAAAfAPz/AQAAAAAAAAAgAP//AQAAAAAAAAAgAAAAAQAAAAAAAAAgAAEAAQAAAAAAAAAgAAIAAQAAAAAAAAAgAAMAAQAAAAAAAAAgAAQAAQAAAAAAAAAhAAIAAQAAAAAAAAAhAAMAAQAAAAAAAAAhAAQAAQAAAAAAAAAiAAQAAQAAAAAAAAAiAAUAAQAAAAAAAAAiAAYAAQAAAAAAAAAjAAYAAQAAAAAAAAAkAAYAAQAAAAAAAAAlAAYAAQAAAAAAAAAmAAUAAQAAAAAAAAAnAAUAAQAAAAAAAAAoAAUAAQAAAAAAAAAjAAUAAQAAAAAAAAAkAAUAAQAAAAAAAAAlAAUAAQAAAAAAAAAmAAYAAQAAAAAAAAAnAAYAAQAAAAAAAAAoAAYAAQAAAAAAAAAlAAQAAQAAAAAAAAAlAAMAAQAAAAAAAAAlAAIAAQAAAAAAAAAlAAEAAQAAAAAAAAAlAAAAAQAAAAAAAAAlAP//AQAAAAAAAAAlAP7/AQAAAAAAAAAlAP3/AQAAAAAAAAAlAPz/AQAAAAAAAAAmAP3/AwAAAAAAAAAnAP3/AwAAAAAAAAAmAP7/AwAAAAAAAAAnAP7/AwAAAAAAAAAoAP7/AwAAAAAAAAAmAP//AwAAAAAAAAAnAP//AwAAAAAAAAA=")
 tile_set = SubResource("TileSet_asu84")
 
@@ -405,3 +412,21 @@ script = ExtResource("55_4w656")
 layout_mode = 0
 
 [connection signal="body_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_body_entered"]
+=======
+tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAAVAAYAAgAAAAAAAAAWAAYAAgAAAAAAAAAYAAYAAgAAAAAAAAAXAAYAAgAAAAAAAAAcAAYAAgAAAAAAAAAfAAYAAgAAAAAAAAAeAAYAAgAAAAAAAAAdAAYAAgAAAAAAAAAgAAYAAgAAAAAAAAAhAAUAAgAAAAAAAAAiAAUAAgAAAAAAAAAjAAUAAgAAAAAAAAAkAAUAAgAAAAAAAAAlAAUAAgAAAAAAAAAmAAUAAgAAAAAAAAAmAAYAAgAAAAAAAAAnAAYAAgAAAAAAAAAnAAcAAgAAAAAAAAApAA0AAgAAAAAAAAAqAA0AAgAAAAAAAAArAA0AAgAAAAAAAAAsAA0AAgAAAAAAAAAtAA0AAgAAAAAAAAAuAA0AAgAAAAAAAAAvAA0AAgAAAAAAAAAwAA0AAgAAAAAAAAAxAA0AAgAAAAAAAAAyAA0AAgAAAAAAAAAzAA0AAgAAAAAAAAA0AA0AAgAAAAAAAAAwAAkAAgAAAAAAAAAtAAYAAgAAAAAAAAA=")
+tile_set = SubResource("TileSet_asu84")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.1, 1.1)
+motion_offset = Vector2(0, -120)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -1636
+position = Vector2(-635, 260.94)
+scale = Vector2(3.95485, 3.869762)
+texture = ExtResource("46_qnost")
+offset = Vector2(184.05, 0)
+>>>>>>> 2f41f29917f4f80128a735501f88287c8467c178
