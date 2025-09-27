@@ -1,12 +1,15 @@
-[gd_scene load_steps=85 format=4 uid="uid://dcc1hh0uraw5v"]
+[gd_scene load_steps=89 format=4 uid="uid://dcc1hh0uraw5v"]
 
 [ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://character_body_2d.gd" id="1_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://bh260vne7tf3c" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_h8e4i"]
 [ext_resource type="Texture2D" uid="uid://dbxbqwloxynlx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_1.png" id="2_0cp0l"]
+[ext_resource type="Texture2D" uid="uid://ddmbj5skwh0gx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_0.png" id="2_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://dp46nv3nwuobc" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_8_16x16.png" id="2_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://3kea2g2ebbxj" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_9_16x16.png" id="3_0cp0l"]
 [ext_resource type="Texture2D" uid="uid://bpes2eanco3ys" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_10_16x16.png" id="4_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://0jbu71jhvym4" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_2.png" id="4_qnost"]
 [ext_resource type="Texture2D" uid="uid://bps3e4yd0n60i" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_11_16x16.png" id="5_gngh3"]
+[ext_resource type="Texture2D" uid="uid://hxkf1exf41kx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Monsters/Skeleton/Variant0/Skeleton_Walk_3.png" id="5_wnkbs"]
 [ext_resource type="Texture2D" uid="uid://48jhpffcj1hf" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_12_16x16.png" id="6_0n3wm"]
 [ext_resource type="Texture2D" uid="uid://bjwy8p6mr60t6" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_13_16x16.png" id="7_qnost"]
 [ext_resource type="Texture2D" uid="uid://brvfiixjepdg7" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_14_16x16.png" id="8_wnkbs"]
@@ -45,6 +48,43 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t1y"]
 size = Vector2(18, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4lmeg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0n3wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cp0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wnkbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qnost")
+}],
+"loop": true,
+"name": &"left",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0n3wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0cp0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qnost")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wnkbs")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4obbf"]
 texture = ExtResource("1_h8e4i")
@@ -263,10 +303,11 @@ shape = SubResource("RectangleShape2D_d2t1y")
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(2, 2)
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(-1.0000038, 14)
-scale = Vector2(0.34374997, 0.33749998)
-texture = ExtResource("2_0cp0l")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-1.0000114, 5.999996)
+scale = Vector2(0.3, 0.4625)
+sprite_frames = SubResource("SpriteFrames_4lmeg")
+animation = &"left"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAA=")
