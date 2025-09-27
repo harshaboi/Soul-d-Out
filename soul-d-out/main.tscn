@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://dcc1hh0uraw5v"]
+[gd_scene load_steps=90 format=4 uid="uid://dcc1hh0uraw5v"]
 
 [ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://character_body_2d.gd" id="1_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://bh260vne7tf3c" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_h8e4i"]
@@ -45,6 +45,7 @@
 [ext_resource type="Texture2D" uid="uid://c6vu0ibbe6lo7" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_5_16x16.png" id="38_gx4rg"]
 [ext_resource type="Texture2D" uid="uid://butokxkqc0kyh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_6_16x16.png" id="39_5dllo"]
 [ext_resource type="Texture2D" uid="uid://c8da1nibnglnh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_7_16x16.png" id="40_phcyf"]
+[ext_resource type="Texture2D" uid="uid://cjvebg8r8pb4q" path="res://bghill.jpeg" id="46_qnost"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t1y"]
 size = Vector2(18, 27)
@@ -310,5 +311,18 @@ sprite_frames = SubResource("SpriteFrames_4lmeg")
 animation = &"left"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAAVAAYAAgAAAAAAAAAWAAYAAgAAAAAAAAAYAAYAAgAAAAAAAAAXAAYAAgAAAAAAAAAcAAYAAgAAAAAAAAAfAAYAAgAAAAAAAAAeAAYAAgAAAAAAAAAdAAYAAgAAAAAAAAAgAAYAAgAAAAAAAAAhAAUAAgAAAAAAAAAiAAUAAgAAAAAAAAAjAAUAAgAAAAAAAAAkAAUAAgAAAAAAAAAlAAUAAgAAAAAAAAAmAAUAAgAAAAAAAAAmAAYAAgAAAAAAAAAnAAYAAgAAAAAAAAAnAAcAAgAAAAAAAAApAA0AAgAAAAAAAAAqAA0AAgAAAAAAAAArAA0AAgAAAAAAAAAsAA0AAgAAAAAAAAAtAA0AAgAAAAAAAAAuAA0AAgAAAAAAAAAvAA0AAgAAAAAAAAAwAA0AAgAAAAAAAAAxAA0AAgAAAAAAAAAyAA0AAgAAAAAAAAAzAA0AAgAAAAAAAAA0AA0AAgAAAAAAAAAwAAkAAgAAAAAAAAAtAAYAAgAAAAAAAAA=")
 tile_set = SubResource("TileSet_asu84")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(1.1, 1.1)
+motion_offset = Vector2(0, -120)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+z_index = -1636
+position = Vector2(-635, 260.94)
+scale = Vector2(3.95485, 3.869762)
+texture = ExtResource("46_qnost")
+offset = Vector2(184.05, 0)
