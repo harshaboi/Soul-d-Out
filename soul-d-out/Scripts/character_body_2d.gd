@@ -2,7 +2,10 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+const maxHealth: int = 100
+const minHealth: int = 0
+var currHealth = maxHealth
+var isDead = false
 # Y limit before respawn
 const DEATH_Y = 400.0
 
@@ -12,6 +15,16 @@ var respawn_position: Vector2
 
 func _ready():
 	respawn_position = global_position
+
+func takeDamage(damage: int):
+	currHealth -= damage
+	if currHealth < minHealth:
+		isDead = true
+
+func heal(healing: int):
+	currHealth += healing
+	if currHealth > maxHealth:
+		currHealth = maxHealth
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -52,3 +65,6 @@ func respawn():
 	global_position = respawn_position
 	velocity = Vector2.ZERO
 	print("Respawned at:", respawn_position)
+	
+#func die():
+#	_animated_sprite.play("die")
