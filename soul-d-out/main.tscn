@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=4 uid="uid://dcc1hh0uraw5v"]
+[gd_scene load_steps=92 format=4 uid="uid://dcc1hh0uraw5v"]
 
 [ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://character_body_2d.gd" id="1_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://bh260vne7tf3c" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_h8e4i"]
@@ -45,6 +45,11 @@
 [ext_resource type="Texture2D" uid="uid://c6vu0ibbe6lo7" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_5_16x16.png" id="38_gx4rg"]
 [ext_resource type="Texture2D" uid="uid://butokxkqc0kyh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_6_16x16.png" id="39_5dllo"]
 [ext_resource type="Texture2D" uid="uid://c8da1nibnglnh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_7_16x16.png" id="40_phcyf"]
+[ext_resource type="Script" uid="uid://ciwvwpt8x466k" path="res://area_2d.gd" id="46_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://lsltfiw5l880" path="res://pixel_houses/pixel_houses/house1/house1_complete.png" id="47_f6a44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnkbs"]
+size = Vector2(64, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t1y"]
 size = Vector2(18, 27)
@@ -292,6 +297,17 @@ sources/39 = SubResource("TileSetAtlasSource_smeu8")
 sources/40 = SubResource("TileSetAtlasSource_cpm2s")
 
 [node name="Main" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(300, 60)
+script = ExtResource("46_wnkbs")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("47_f6a44")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wnkbs")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 script = ExtResource("1_4lmeg")
