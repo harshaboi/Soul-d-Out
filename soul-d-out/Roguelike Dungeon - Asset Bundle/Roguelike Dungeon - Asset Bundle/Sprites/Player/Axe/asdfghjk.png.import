@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxjlkgajg8q23"
-path="res://.godot/imported/Player_Walk_Special_3.png-9062f79e76a9eb3ea5a2215d13edb632.ctex"
+uid="uid://8x5cb2qxkc3o"
+path="res://.godot/imported/asdfghjk.png-2509f948fffd99ad9a329c1677c6e71d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_3.png"
-dest_files=["res://.godot/imported/Player_Walk_Special_3.png-9062f79e76a9eb3ea5a2215d13edb632.ctex"]
+source_file="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Axe/asdfghjk.png"
+dest_files=["res://.godot/imported/asdfghjk.png-2509f948fffd99ad9a329c1677c6e71d.ctex"]
 
 [params]
 

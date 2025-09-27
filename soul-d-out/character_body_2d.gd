@@ -1,54 +1,113 @@
 extends CharacterBody2D
 
+# ---------------- Movement ----------------
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const MAX_JUMPS = 2
 
-# Y limit before respawn
-const DEATH_Y = 400.0
+# ---------------- Stats ----------------
+var max_hp: int = 5
+var hp: int = 5
+var attack_damage: int = 1
+var can_attack: bool = true
 
-var respawn_position: Vector2
+# ---------------- Respawn ----------------
+var checkpoint_position: Vector2
+var jump_count: int = 0
 
-@onready var _animated_sprite = $AnimatedSprite2D
+# ---------------- Node References ----------------
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_active_timer: Timer = $AttackActiveTimer
+@onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 
+@onready var coin_label: CoinLabel = get_tree().root.get_node("Main/UI/CoinLabel") as CoinLabel
+@onready var soul_meter: SoulMeter = get_tree().root.get_node("Main/UI/SoulLabel") as SoulMeter
+
+# ---------------- Ready ----------------
 func _ready():
-	respawn_position = global_position
+	checkpoint_position = global_position
+	add_to_group("player")
+	attack_area.monitoring = false
+	update_health_ui()
 
+# ---------------- Physics ----------------
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	else:
+		jump_count = 0
 
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	# Jump (double jump)
+	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
+		jump_count += 1
 
+	# Movement
 	var direction := Input.get_axis("left", "right")
-	
-	if direction:
-		if direction < 0:
-			_animated_sprite.flip_h = true
-		elif direction > 0:
-			_animated_sprite.flip_h = false
-
+	if direction != 0:
 		velocity.x = direction * SPEED
+		sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 
-	# 🔽 Auto-respawn check
-	if global_position.y >= DEATH_Y:
+	# Respawn if falling
+	if global_position.y >= 400:
 		respawn()
 
+# ---------------- Process ----------------
 func _process(_delta):
 	if Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-		_animated_sprite.play("walk")
+		sprite.play("walk")
 	else:
-		_animated_sprite.stop()
+		sprite.play("idle")
 
-func set_checkpoint(pos: Vector2):
-	respawn_position = pos
-	print("Checkpoint updated:", respawn_position)
+	if Input.is_action_just_pressed("attack") and can_attack:
+		start_attack()
+
+# ---------------- Attack ----------------
+func start_attack():
+	if not can_attack:
+		return
+	can_attack = false
+	attack_area.monitoring = true
+	attack_active_timer.start()    # active 0.2s
+	attack_cooldown_timer.start()  # cooldown 0.5s
+
+func _on_AttackActiveTimer_timeout():
+	attack_area.monitoring = false
+
+func _on_AttackCooldownTimer_timeout():
+	can_attack = true
+
+func _on_AttackArea_body_entered(body: Node2D):
+	if body.is_in_group("enemy") and body.has_method("take_damage"):
+		body.take_damage(attack_damage)
+
+# ---------------- Damage & Respawn ----------------
+func take_damage(amount: int):
+	hp -= amount
+	if hp < 0:
+		hp = 0
+	update_health_ui()
+	if hp <= 0:
+		respawn()
 
 func respawn():
-	global_position = respawn_position
-	velocity = Vector2.ZERO
-	print("Respawned at:", respawn_position)
+	hp = max_hp
+	global_position = checkpoint_position
+	jump_count = 0
+	print("Respawned at checkpoint:", checkpoint_position)
+
+# ---------------- Rewards ----------------
+func add_coin(amount: int = 1):
+	if coin_label != null:
+		coin_label.add_coin(amount)
+
+func add_soul(amount: int = 1):
+	if soul_meter != null:
+		soul_meter.add_soul(amount)
+
+# ---------------- UI Updates ----------------

@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=4 uid="uid://dcc1hh0uraw5v"]
+[gd_scene load_steps=101 format=4 uid="uid://dcc1hh0uraw5v"]
 
 [ext_resource type="Script" uid="uid://x8g1whcklmtp" path="res://character_body_2d.gd" id="1_4lmeg"]
 [ext_resource type="Texture2D" uid="uid://bh260vne7tf3c" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_h8e4i"]
@@ -47,12 +47,20 @@
 [ext_resource type="Texture2D" uid="uid://c8da1nibnglnh" path="res://Starter Tiles - Platformer/Starter Tiles Platformer/BasicGreenTiles/Green_7_16x16.png" id="40_phcyf"]
 [ext_resource type="Script" uid="uid://ciwvwpt8x466k" path="res://area_2d.gd" id="46_wnkbs"]
 [ext_resource type="Texture2D" uid="uid://lsltfiw5l880" path="res://pixel_houses/pixel_houses/house1/house1_complete.png" id="47_f6a44"]
+[ext_resource type="Script" uid="uid://dhibcg2qriwib" path="res://SoulMeter.gd" id="49_abqjc"]
+[ext_resource type="PackedScene" uid="uid://1n0ap52mu2ip" path="res://Enemy.tscn" id="50_6iyjs"]
+[ext_resource type="Texture2D" uid="uid://x3gwi4pxrule" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_1.png" id="51_4w656"]
+[ext_resource type="Texture2D" uid="uid://kp0161iw3lvx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_2.png" id="52_e71vb"]
+[ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="53_rnkwl"]
+[ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="54_vke2r"]
+[ext_resource type="Script" uid="uid://d13h7hjh7hjty" path="res://CoinLabel.gd" id="55_4w656"]
+[ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="55_uit24"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wnkbs"]
 size = Vector2(64, 52)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2t1y"]
-size = Vector2(18, 27)
+size = Vector2(42, 27)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4lmeg"]
 animations = [{
@@ -90,6 +98,9 @@ animations = [{
 "name": &"walk",
 "speed": 10.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ruth0"]
+size = Vector2(42, 37)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4obbf"]
 texture = ExtResource("1_h8e4i")
@@ -309,22 +320,88 @@ texture = ExtResource("47_f6a44")
 position = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wnkbs")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_4lmeg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 28.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(11, 28.5)
 shape = SubResource("RectangleShape2D_d2t1y")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(-1.0000114, 5.999996)
 scale = Vector2(0.3, 0.4625)
 sprite_frames = SubResource("SpriteFrames_4lmeg")
 animation = &"left"
 
+[node name="AttackArea" type="Area2D" parent="Player"]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/AttackArea"]
+position = Vector2(-1, 25)
+shape = SubResource("RectangleShape2D_ruth0")
+
+[node name="AttackActiveTimer" type="Timer" parent="Player"]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="Player"]
+wait_time = 0.5
+one_shot = true
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD+/wMAAQAAAAAAAAD//wMAAQAAAAAAAAAAAAMAAQAAAAAAAAABAAMAAQAAAAAAAAACAAQAAQAAAAAAAAADAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAIAAQAAQAAAAAAAAAJAAQAAQAAAAAAAAAKAAUAAQAAAAAAAAALAAUAAQAAAAAAAAAMAAUAAQAAAAAAAAANAAUAAQAAAAAAAAAOAAUAAQAAAAAAAAAPAAUAAQAAAAAAAAAQAAUAAQAAAAAAAAARAAYAAQAAAAAAAAASAAYAAQAAAAAAAAATAAYAAQAAAAAAAAAUAAYAAQAAAAAAAAARAAUAAQAAAAAAAAASAAUAAQAAAAAAAAATAAUAAQAAAAAAAAAUAAUAAQAAAAAAAAAQAAYAAQAAAAAAAAAPAAYAAQAAAAAAAAAOAAYAAQAAAAAAAAANAAYAAQAAAAAAAAAMAAYAAQAAAAAAAAALAAYAAQAAAAAAAAAKAAYAAQAAAAAAAAAJAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAFAAYAAQAAAAAAAAAEAAYAAQAAAAAAAAADAAYAAQAAAAAAAAACAAYAAQAAAAAAAAABAAYAAQAAAAAAAAAAAAYAAQAAAAAAAAD//wYAAQAAAAAAAAD+/wYAAQAAAAAAAAD+/wQAAQAAAAAAAAD+/wUAAQAAAAAAAAD//wUAAQAAAAAAAAAAAAUAAQAAAAAAAAABAAUAAQAAAAAAAAACAAUAAQAAAAAAAAADAAUAAQAAAAAAAAAEAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAGAAUAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAUAAQAAAAAAAAD//wQAAQAAAAAAAAAAAAQAAQAAAAAAAAABAAQAAQAAAAAAAAAVAAYAAQAAAAAAAAAWAAYAAQAAAAAAAAAXAAYAAQAAAAAAAAAYAAYAAQAAAAAAAAAZAAYAAQAAAAAAAAAaAAYAAQAAAAAAAAAbAAYAAQAAAAAAAAAcAAYAAQAAAAAAAAAdAAYAAQAAAAAAAAAeAAYAAQAAAAAAAAAfAAYAAQAAAAAAAAAgAAYAAQAAAAAAAAAhAAYAAQAAAAAAAAAhAAUAAQAAAAAAAAAgAAUAAQAAAAAAAAAfAAUAAQAAAAAAAAAeAAUAAQAAAAAAAAAdAAUAAQAAAAAAAAAcAAUAAQAAAAAAAAAbAAUAAQAAAAAAAAAaAAUAAQAAAAAAAAAZAAUAAQAAAAAAAAAYAAUAAQAAAAAAAAAXAAUAAQAAAAAAAAAWAAUAAQAAAAAAAAAVAAUAAQAAAAAAAAAaAAQAAQAAAAAAAAAaAAMAAQAAAAAAAAAaAAIAAQAAAAAAAAAaAAEAAQAAAAAAAAAaAAAAAQAAAAAAAAAaAP//AQAAAAAAAAAZAAIAAQAAAAAAAAAZAAMAAQAAAAAAAAAZAAQAAQAAAAAAAAAYAAQAAQAAAAAAAAAbAAQAAQAAAAAAAAAbAAMAAQAAAAAAAAAbAAIAAQAAAAAAAAAbAAEAAQAAAAAAAAAbAAAAAQAAAAAAAAAbAP//AQAAAAAAAAAbAP7/AQAAAAAAAAAbAP3/AQAAAAAAAAAbAPz/AQAAAAAAAAAfAAQAAQAAAAAAAAAfAAMAAQAAAAAAAAAfAAIAAQAAAAAAAAAfAAEAAQAAAAAAAAAfAAAAAQAAAAAAAAAfAP//AQAAAAAAAAAfAP7/AQAAAAAAAAAfAP3/AQAAAAAAAAAfAPz/AQAAAAAAAAAgAP//AQAAAAAAAAAgAAAAAQAAAAAAAAAgAAEAAQAAAAAAAAAgAAIAAQAAAAAAAAAgAAMAAQAAAAAAAAAgAAQAAQAAAAAAAAAhAAIAAQAAAAAAAAAhAAMAAQAAAAAAAAAhAAQAAQAAAAAAAAAiAAQAAQAAAAAAAAAiAAUAAQAAAAAAAAAiAAYAAQAAAAAAAAAjAAYAAQAAAAAAAAAkAAYAAQAAAAAAAAAlAAYAAQAAAAAAAAAmAAUAAQAAAAAAAAAnAAUAAQAAAAAAAAAoAAUAAQAAAAAAAAAjAAUAAQAAAAAAAAAkAAUAAQAAAAAAAAAlAAUAAQAAAAAAAAAmAAYAAQAAAAAAAAAnAAYAAQAAAAAAAAAoAAYAAQAAAAAAAAAlAAQAAQAAAAAAAAAlAAMAAQAAAAAAAAAlAAIAAQAAAAAAAAAlAAEAAQAAAAAAAAAlAAAAAQAAAAAAAAAlAP//AQAAAAAAAAAlAP7/AQAAAAAAAAAlAP3/AQAAAAAAAAAlAPz/AQAAAAAAAAAmAP3/AwAAAAAAAAAnAP3/AwAAAAAAAAAmAP7/AwAAAAAAAAAnAP7/AwAAAAAAAAAoAP7/AwAAAAAAAAAmAP//AwAAAAAAAAAnAP//AwAAAAAAAAA=")
 tile_set = SubResource("TileSet_asu84")
+
+[node name="Enemy" parent="." instance=ExtResource("50_6iyjs")]
+position = Vector2(241, 55)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HeartsContainer" type="HBoxContainer" parent="UI"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Heart1" type="TextureRect" parent="UI/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("51_4w656")
+
+[node name="Heart2" type="TextureRect" parent="UI/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("52_e71vb")
+
+[node name="Heart3" type="TextureRect" parent="UI/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("53_rnkwl")
+
+[node name="Heart4" type="TextureRect" parent="UI/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("54_vke2r")
+
+[node name="Heart5" type="TextureRect" parent="UI/HeartsContainer"]
+layout_mode = 2
+texture = ExtResource("55_uit24")
+
+[node name="SoulLabel" type="Label" parent="UI"]
+offset_left = -284.0
+offset_top = -162.0
+offset_right = -211.0
+offset_bottom = -139.0
+text = "Souls: 0"
+script = ExtResource("49_abqjc")
+
+[node name="CoinLabel" type="Label" parent="UI"]
+offset_left = -286.0
+offset_top = -142.0
+offset_right = -225.0
+offset_bottom = -119.0
+text = "Coins: 0"
+script = ExtResource("55_4w656")
+
+[node name="TextureRect" type="TextureRect" parent="UI/CoinLabel"]
+layout_mode = 0
+
+[connection signal="body_entered" from="Player/AttackArea" to="Player" method="_on_attack_area_body_entered"]

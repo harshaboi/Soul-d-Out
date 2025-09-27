@@ -1,0 +1,66 @@
+[gd_scene load_steps=9 format=3 uid="uid://1n0ap52mu2ip"]
+
+[ext_resource type="Script" uid="uid://bwelupvg5gnka" path="res://enemy.gd" id="1_s7bn3"]
+[ext_resource type="Texture2D" uid="uid://8ugguwvmu7xr" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/asdfghjk.png" id="2_2hac7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6d4v"]
+size = Vector2(24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qp131"]
+atlas = ExtResource("2_2hac7")
+region = Rect2(0, 0, 106, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6do27"]
+atlas = ExtResource("2_2hac7")
+region = Rect2(106, 0, 106, 160)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvmyp"]
+atlas = ExtResource("2_2hac7")
+region = Rect2(212, 0, 106, 160)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nxwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qp131")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6do27")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rvmyp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7bn3"]
+size = Vector2(87.56536, 69.1892)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(-131, -2)
+collision_layer = 4
+script = ExtResource("1_s7bn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_e6d4v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy"]
+position = Vector2(-9.999999, -14)
+scale = Vector2(0.433962, 0.34687495)
+sprite_frames = SubResource("SpriteFrames_2nxwx")
+
+[node name="AttackArea" type="Area2D" parent="Enemy/AnimatedSprite2D"]
+position = Vector2(23.043518, 57.65767)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/AnimatedSprite2D/AttackArea"]
+position = Vector2(2.3043518, -23.063072)
+scale = Vector2(0.99999976, 1)
+shape = SubResource("RectangleShape2D_s7bn3")
+
+[connection signal="body_entered" from="Enemy/AnimatedSprite2D/AttackArea" to="Enemy" method="_on_attack_area_body_entered"]
