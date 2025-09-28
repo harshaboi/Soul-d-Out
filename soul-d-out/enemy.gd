@@ -60,6 +60,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 	if aggro and body.is_in_group("player") and can_attack:
 		if body.has_method("take_damage"):
 			body.take_damage(attack_damage)
+			$AttackSound.play()
 		can_attack = false
 		await get_tree().create_timer(attack_cooldown).timeout
 		can_attack = true

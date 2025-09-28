@@ -46,10 +46,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
+		$MOVE.play()
 
 	# Movement
 	var direction = Input.get_axis("left", "right")
 	velocity.x = direction * SPEED
+	$MOVE.play()
 	if direction != 0:
 		sprite.flip_h = direction < 0
 
@@ -75,6 +77,7 @@ func _process(_delta):
 func attack():
 	if attack_area:
 		sprite.play("attack")
+		$ATTACK.play()
 		attack_area.monitoring = true
 		await get_tree().create_timer(0.2).timeout
 		attack_area.monitoring = false
@@ -83,6 +86,7 @@ func attack():
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
 		body.take_damage(attack_damage)
+		$"TAKE DAMAGE".play()
 
 # ---------------- Damage ----------------
 func take_damage(amount: int):
