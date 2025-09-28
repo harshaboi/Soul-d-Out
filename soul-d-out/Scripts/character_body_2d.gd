@@ -3,22 +3,13 @@ extends CharacterBody2D
 # ---------------- Movement ----------------
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-<<<<<<< HEAD:soul-d-out/character_body_2d.gd
 const MAX_JUMPS = 2
 
 # ---------------- Stats ----------------
 var max_hp: int = 5
-var hp: int = 5
+var hp: int = max_hp
 var attack_damage: int = 1
 var can_attack: bool = true
-=======
-const maxHealth: int = 100
-const minHealth: int = 0
-var currHealth = maxHealth
-var isDead = false
-# Y limit before respawn
-const DEATH_Y = 400.0
->>>>>>> 2f41f29917f4f80128a735501f88287c8467c178:soul-d-out/Scripts/character_body_2d.gd
 
 # ---------------- Respawn ----------------
 var checkpoint_position: Vector2
@@ -40,20 +31,7 @@ func _ready():
 	attack_area.monitoring = false
 	update_health_ui()
 
-<<<<<<< HEAD:soul-d-out/character_body_2d.gd
 # ---------------- Physics ----------------
-=======
-func takeDamage(damage: int):
-	currHealth -= damage
-	if currHealth < minHealth:
-		isDead = true
-
-func heal(healing: int):
-	currHealth += healing
-	if currHealth > maxHealth:
-		currHealth = maxHealth
-
->>>>>>> 2f41f29917f4f80128a735501f88287c8467c178:soul-d-out/Scripts/character_body_2d.gd
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -118,10 +96,10 @@ func take_damage(amount: int):
 		respawn()
 
 func respawn():
-<<<<<<< HEAD:soul-d-out/character_body_2d.gd
 	hp = max_hp
 	global_position = checkpoint_position
 	jump_count = 0
+	velocity = Vector2.ZERO
 	print("Respawned at checkpoint:", checkpoint_position)
 
 # ---------------- Rewards ----------------
@@ -134,11 +112,6 @@ func add_soul(amount: int = 1):
 		soul_meter.add_soul(amount)
 
 # ---------------- UI Updates ----------------
-=======
-	global_position = respawn_position
-	velocity = Vector2.ZERO
-	print("Respawned at:", respawn_position)
-	
-#func die():
-#	_animated_sprite.play("die")
->>>>>>> 2f41f29917f4f80128a735501f88287c8467c178:soul-d-out/Scripts/character_body_2d.gd
+func update_health_ui():
+	# Call your UI update functions here
+	pass

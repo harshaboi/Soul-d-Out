@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://1n0ap52mu2ip"]
 
 [ext_resource type="Script" uid="uid://bwelupvg5gnka" path="res://enemy.gd" id="1_s7bn3"]
-[ext_resource type="Texture2D" uid="uid://8ugguwvmu7xr" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/asdfghjk.png" id="2_2hac7"]
+[ext_resource type="Texture2D" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/asdfghjk.png" id="2_2hac7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e6d4v"]
 size = Vector2(24, 28)
