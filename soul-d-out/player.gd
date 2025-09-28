@@ -1,10 +1,9 @@
-
 extends CharacterBody2D
 
 # ---------------- Movement ----------------
 const SPEED: float = 300.0
 const JUMP_VELOCITY: float = -400.0
-const MAX_JUMPS: int = 2  # Double jump allowed
+const MAX_JUMPS: int = 2
 var jump_count: int = 0
 
 # ---------------- Stats ----------------
@@ -28,11 +27,11 @@ var checkpoint_position: Vector2
 func _ready():
 	checkpoint_position = global_position
 	add_to_group("player")
-
+	
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
-
+	
 	update_health_ui()
 	update_coin_ui()
 	update_soul_ui()
@@ -43,53 +42,51 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	else:
-		jump_count = 0  # Reset jumps on floor
-
+		jump_count = 0
+	
 	# Jump
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-
+	
 	# Movement
 	var direction = Input.get_axis("left", "right")
 	if direction != 0:
 		velocity.x = direction * SPEED
 		sprite.flip_h = direction < 0
-		if is_on_floor():
-			sprite.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if is_on_floor():
-			sprite.play("idle")
-
+	
 	move_and_slide()
-
+	
 	# Respawn if falling
 	if global_position.y >= 400:
 		respawn()
 
 # ---------------- Process ----------------
 func _process(_delta):
-	# Attack input
+	# Movement animation
+	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
+		sprite.play("walk")
+	else:
+		sprite.play("idle")
+	
+	# Attack
 	if Input.is_action_just_pressed("attack"):
 		attack()
 
 # ---------------- Attack ----------------
 func attack():
-	if not attack_area:
-		return
+	if attack_area:
+		sprite.play("attack")
+		attack_area.monitoring = true
+		await get_tree().create_timer(0.2).timeout
+		attack_area.monitoring = false
 
-	sprite.play("attack")
-	attack_area.monitoring = true
-
-	# Disable hitbox after short delay
-	await get_tree().create_timer(0.2).timeout
-	attack_area.monitoring = false
-
-# ---------------- Attack Area Signal ----------------
+# ---------------- Attack Area ----------------
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
-		body.take_damage(attack_damage)
+		body.take_damage(1)
 
 # ---------------- Damage ----------------
 func take_damage(amount: int):
@@ -99,6 +96,7 @@ func take_damage(amount: int):
 	update_health_ui()
 	if hp <= 0:
 		respawn()
+		sprite.play("death")
 
 # ---------------- Respawn ----------------
 func respawn():
@@ -120,7 +118,7 @@ func add_soul(amount: int = 1):
 func update_health_ui():
 	for i in range(1, max_hp + 1):
 		var heart_node = hearts_container.get_node("Heart %d" % i)
-		heart_node.visible = (i == hp)
+		heart_node.visible = (i <= hp)
 
 func update_coin_ui():
 	if coin_label:
