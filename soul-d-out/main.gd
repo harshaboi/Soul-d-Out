@@ -38,7 +38,7 @@ func _ready():
 func _process(_delta):
 	if not player:
 		return
-	if player.velocity.x == player.velocity.x  :
+	if player.velocity.x !=0  :
 		var thingyfloor = get_node("GroundTileMap")
 		var floorthingy = thingyfloor.duplicate()
 		if Input.is_action_pressed("left"):
