@@ -33,7 +33,6 @@ func _ready():
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
-	
 	update_health_ui()
 	update_coin_ui()
 	update_soul_ui()
@@ -47,18 +46,17 @@ func _physics_process(delta: float) -> void:
 		jump_count = 0
 	# Jump
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
+		$MOVE.play()
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-	
-	# Movement
+	# Movement (pass through enemies)
 	var direction = Input.get_axis("left", "right")
+	velocity.x = direction * SPEED
 	if direction != 0:
-		velocity.x = direction * SPEED
 		sprite.flip_h = direction < 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-	move_and_slide()
-	
+
+	move_and_slide() # Player will pass through enemies if collision layers/masks are set properly
+
 	# Respawn if falling
 	if global_position.y >= 400:
 		respawn()
@@ -68,6 +66,7 @@ func _process(_delta):
 	# Movement animation
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		sprite.play("walk")
+		$MOVE.play()
 	else:
 		sprite.play("idle")
 	# Attack input
@@ -79,25 +78,26 @@ func _process(_delta):
 
 # ---------------- Attack ----------------
 func attack():
+	$ATTACK.play()
 	if attack_area:
-		sprite.play("attack")  # full attack animation
+		sprite.play("attack") # play full animation
 		attack_area.monitoring = true
 		await get_tree().create_timer(0.2).timeout
 		attack_area.monitoring = false
 
-# ---------------- Attack Collision ----------------
+# ---------------- Attack Area Signal ----------------
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
 		body.take_damage(1)
 
 # ---------------- Damage ----------------
 func take_damage(amount: int):
+	$"TAKE DAMAGE".play()
 	hp -= amount
 	if hp < 0:
 		hp = 0
 	update_health_ui()
 	if hp <= 0:
-		sprite.play("death")
 		respawn()
 		sprite.play("death")
 
@@ -108,7 +108,7 @@ func respawn():
 	jump_count = 0
 	update_health_ui()
 
-# ---------------- Rewards ----------------
+# ---------------- Coins/Souls ----------------
 func add_coin(amount: int = 1):
 	coins += amount
 	update_coin_ui()
@@ -117,12 +117,11 @@ func add_soul(amount: int = 1):
 	souls += amount
 	update_soul_ui()
 
-# ---------------- UI ----------------
+# ---------------- UI Updates ----------------
 func update_health_ui():
 	for i in range(1, max_hp + 1):
 		var heart_node = hearts_container.get_node("Heart %d" % i)
-		if heart_node:
-			heart_node.visible = i <= hp
+		heart_node.visible = i <= hp
 
 func update_coin_ui():
 	if coin_label:

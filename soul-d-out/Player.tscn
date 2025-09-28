@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bb8ch54hftvgi"]
+[gd_scene load_steps=30 format=3 uid="uid://cxe7hmkp3idtp"]
 
 [ext_resource type="Texture2D" uid="uid://bsm4uje2xuaoq" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_0.png" id="1_jatw7"]
 [ext_resource type="Script" uid="uid://dqmjh6vp2vtlm" path="res://player.gd" id="1_rv870"]
@@ -17,12 +17,15 @@
 [ext_resource type="Texture2D" uid="uid://hlvr6ua0kste" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_1.png" id="14_ictha"]
 [ext_resource type="Texture2D" uid="uid://difuunn6i5fuh" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_2.png" id="15_1jgrc"]
 [ext_resource type="Texture2D" uid="uid://bxjlkgajg8q23" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_3.png" id="16_7wy67"]
-[ext_resource type="PackedScene" path="res://UI.tscn" id="18_h84ma"]
+[ext_resource type="PackedScene" uid="uid://djwynl3645tuc" path="res://ui.tscn" id="18_h84ma"]
 [ext_resource type="Texture2D" uid="uid://x3gwi4pxrule" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_1.png" id="19_47wu6"]
 [ext_resource type="Texture2D" uid="uid://kp0161iw3lvx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_2.png" id="20_2n1s8"]
 [ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="21_3vjad"]
 [ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="22_yt0h1"]
 [ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="23_vd78s"]
+[ext_resource type="AudioStream" uid="uid://c8aycyb6jnpju" path="res://explosion.wav" id="24_3vjad"]
+[ext_resource type="AudioStream" uid="uid://bht088enunm7s" path="res://hitHurt (1).wav" id="25_yt0h1"]
+[ext_resource type="AudioStream" uid="uid://bwx14rxf18iid" path="res://hitHurt.wav" id="26_vd78s"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h84ma"]
 animations = [{
@@ -99,7 +102,7 @@ animations = [{
 size = Vector2(30, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n1s8"]
-size = Vector2(102, 62)
+size = Vector2(185, 62)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rv870")
@@ -124,7 +127,8 @@ one_shot = true
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackArea" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(30, 14)
+visibility_layer = 4
+position = Vector2(-11.5, 14)
 shape = SubResource("RectangleShape2D_2n1s8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -175,3 +179,15 @@ texture = ExtResource("22_yt0h1")
 [node name="Heart 5" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
 layout_mode = 0
 texture = ExtResource("23_vd78s")
+
+[node name="MOVE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_3vjad")
+volume_db = 24.0
+
+[node name="ATTACK" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_yt0h1")
+volume_db = 24.0
+
+[node name="TAKE DAMAGE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_vd78s")
+volume_db = 24.0
