@@ -41,7 +41,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 8.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -136,9 +136,9 @@ auto_translate_mode = 1
 [node name="SoulLabel" type="Label" parent="Camera2D/UI"]
 layout_mode = 0
 offset_left = 325.0
-offset_top = -200.0
+offset_top = -150.0
 offset_right = 384.0
-offset_bottom = -177.0
+offset_bottom = -127.0
 text = "Souls: 0"
 
 [node name="CoinLabel" type="Label" parent="Camera2D/UI"]
