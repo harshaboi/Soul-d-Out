@@ -1,0 +1,220 @@
+[gd_scene load_steps=57 format=4 uid="uid://c7a1etxw8u34f"]
+
+[ext_resource type="Texture2D" uid="uid://carje8rxdqnh2" path="res://fantasy-endless-hole-landscape.jpg" id="1_csoo1"]
+[ext_resource type="Texture2D" uid="uid://cvjq3ho11h3kw" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_1_16x16.png" id="2_p4wwd"]
+[ext_resource type="Texture2D" uid="uid://bf8xsx4rf6ntp" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_2_16x16.png" id="3_jcoqo"]
+[ext_resource type="Texture2D" uid="uid://cxkildn2nbqxj" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_11_16x16.png" id="4_gvi84"]
+[ext_resource type="Texture2D" uid="uid://c1up66nddiamh" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_12_16x16.png" id="5_sqyus"]
+[ext_resource type="Texture2D" uid="uid://bapc26qtt1d3v" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_13_16x16.png" id="6_6ceev"]
+[ext_resource type="Texture2D" uid="uid://bdwjhhu45f1k0" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_14_16x16.png" id="7_16ycb"]
+[ext_resource type="Texture2D" uid="uid://bfqx7gibrguw5" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_15_16x16.png" id="8_qo8hs"]
+[ext_resource type="Texture2D" uid="uid://clw2a8qwmicn0" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_16_16x16.png" id="9_n6e0q"]
+[ext_resource type="Texture2D" uid="uid://rbxnqvrsg7pl" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_17_16x16.png" id="10_a0mnx"]
+[ext_resource type="Texture2D" uid="uid://dap721isc4w0p" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_18_16x16.png" id="11_62sra"]
+[ext_resource type="Texture2D" uid="uid://brsdg63wsau1s" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_19_16x16.png" id="12_ggakv"]
+[ext_resource type="Texture2D" uid="uid://cgns63t2vc4xf" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_20_16x16.png" id="13_b0s5v"]
+[ext_resource type="Texture2D" uid="uid://bx1t7qu4sr28c" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_3_16x16.png" id="14_podhi"]
+[ext_resource type="Texture2D" uid="uid://dgxi0i86nuyb1" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_21_16x16.png" id="15_8pw5a"]
+[ext_resource type="Texture2D" uid="uid://may4fjl2dn7w" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_22_16x16.png" id="16_6qcws"]
+[ext_resource type="Texture2D" uid="uid://cr4ln7ukithhf" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_23_16x16.png" id="17_x2ten"]
+[ext_resource type="Texture2D" uid="uid://rm5ew1xxeccb" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_24_16x16.png" id="18_wskkq"]
+[ext_resource type="Texture2D" uid="uid://dar0t47oetccp" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_25_16x16.png" id="19_y85g5"]
+[ext_resource type="Texture2D" uid="uid://h3jjejuvij6m" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_4_16x16.png" id="20_x0b2w"]
+[ext_resource type="Texture2D" uid="uid://ca36vqy4x16sb" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_5_16x16.png" id="21_jsxuv"]
+[ext_resource type="Texture2D" uid="uid://8jquvx2xts1k" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_6_16x16.png" id="22_0vtby"]
+[ext_resource type="Texture2D" uid="uid://ccaifc0n0rm17" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_7_16x16.png" id="23_s8l8n"]
+[ext_resource type="Texture2D" uid="uid://csmwca8o4d7ni" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_8_16x16.png" id="24_qnxs6"]
+[ext_resource type="Texture2D" uid="uid://b4y7yxr51sve5" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_9_16x16.png" id="25_6lvua"]
+[ext_resource type="Texture2D" uid="uid://hiwqustdpst1" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_10_16x16.png" id="26_aefbs"]
+[ext_resource type="Texture2D" uid="uid://e86tnhi85vxa" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Bosses/Dungeon Master/DungeonMaster_Death_00.png" id="27_jcoqo"]
+[ext_resource type="Script" uid="uid://co23xec2bqbb1" path="res://rich_text_label.gd" id="28_gvi84"]
+[ext_resource type="PackedScene" uid="uid://ciilbufuoncel" path="res://PlayerCutscene.tscn" id="29_gvi84"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7grc"]
+texture = ExtResource("2_p4wwd")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o5fc7"]
+texture = ExtResource("3_jcoqo")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vb286"]
+texture = ExtResource("4_gvi84")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ok4a"]
+texture = ExtResource("5_sqyus")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slx87"]
+texture = ExtResource("6_6ceev")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jp74x"]
+texture = ExtResource("7_16ycb")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4swv"]
+texture = ExtResource("8_qo8hs")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41w7y"]
+texture = ExtResource("9_n6e0q")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jq1p6"]
+texture = ExtResource("10_a0mnx")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21qet"]
+texture = ExtResource("11_62sra")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4mt7"]
+texture = ExtResource("12_ggakv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ridf3"]
+texture = ExtResource("13_b0s5v")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ga02n"]
+texture = ExtResource("14_podhi")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73mvc"]
+texture = ExtResource("15_8pw5a")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jsqmg"]
+texture = ExtResource("16_6qcws")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hu5km"]
+texture = ExtResource("17_x2ten")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xevf5"]
+texture = ExtResource("18_wskkq")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xx87"]
+texture = ExtResource("19_y85g5")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1q75"]
+texture = ExtResource("20_x0b2w")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ikbvy"]
+texture = ExtResource("21_jsxuv")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2ubno"]
+texture = ExtResource("22_0vtby")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tssc8"]
+texture = ExtResource("23_s8l8n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60y2h"]
+texture = ExtResource("24_qnxs6")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p6fw0"]
+texture = ExtResource("25_6lvua")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqebe"]
+texture = ExtResource("26_aefbs")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_141a6"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_o7grc")
+sources/1 = SubResource("TileSetAtlasSource_o5fc7")
+sources/2 = SubResource("TileSetAtlasSource_ga02n")
+sources/3 = SubResource("TileSetAtlasSource_q1q75")
+sources/4 = SubResource("TileSetAtlasSource_ikbvy")
+sources/5 = SubResource("TileSetAtlasSource_2ubno")
+sources/6 = SubResource("TileSetAtlasSource_tssc8")
+sources/7 = SubResource("TileSetAtlasSource_60y2h")
+sources/8 = SubResource("TileSetAtlasSource_p6fw0")
+sources/9 = SubResource("TileSetAtlasSource_xqebe")
+sources/10 = SubResource("TileSetAtlasSource_vb286")
+sources/11 = SubResource("TileSetAtlasSource_5ok4a")
+sources/12 = SubResource("TileSetAtlasSource_slx87")
+sources/13 = SubResource("TileSetAtlasSource_jp74x")
+sources/14 = SubResource("TileSetAtlasSource_q4swv")
+sources/15 = SubResource("TileSetAtlasSource_41w7y")
+sources/16 = SubResource("TileSetAtlasSource_jq1p6")
+sources/17 = SubResource("TileSetAtlasSource_21qet")
+sources/18 = SubResource("TileSetAtlasSource_c4mt7")
+sources/19 = SubResource("TileSetAtlasSource_ridf3")
+sources/20 = SubResource("TileSetAtlasSource_73mvc")
+sources/21 = SubResource("TileSetAtlasSource_jsqmg")
+sources/22 = SubResource("TileSetAtlasSource_hu5km")
+sources/23 = SubResource("TileSetAtlasSource_xevf5")
+sources/24 = SubResource("TileSetAtlasSource_4xx87")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gvi84"]
+size = Vector2(144, 210)
+
+[node name="Main Menu" type="Node2D"]
+
+[node name="FantasyEndlessHoleLandscape" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_csoo1")
+
+[node name="Camera2D" type="Camera2D" parent="FantasyEndlessHoleLandscape"]
+position = Vector2(82.902, -101.00014)
+scale = Vector2(1.546, 1.546)
+offset = Vector2(-25, 125)
+zoom = Vector2(3.2, 3.2)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD2/xAAAQAAAAAAAAD6/xAAAwAAAAAAAAD7/xAAAgAAAAAAAAD3/xAAAgAAAAAAAAD4/xAAAwAAAAAAAAD5/xAACQAAAAAAAAD8/xAAAwAAAAAAAAD8/w8ABAAAAAAAAAD7/w8ABAAAAAAAAAD5/w8ABAAAAAAAAAD1/xAABAAAAAAAAAD9/w8ABAAAAAAAAAD9/xAABAAAAAAAAAD+/xAABAAAAAAAAAD+/w8AEwAAAAAAAAD//w8ABAAAAAAAAAD//xAADAAAAAAAAAAAABAABAAAAAAAAAAAAA8ABAAAAAAAAAABAA8ABAAAAAAAAAACAA8ACwAAAAAAAAACABAACwAAAAAAAAABABAACwAAAAAAAAADAA8ACwAAAAAAAAAEABAACwAAAAAAAAAEAA8AGAAAAAAAAAAFABAAGAAAAAAAAAAFAA8ACQAAAAAAAAADABAAGAAAAAAAAAD6/w8AGAAAAAAAAAD4/w8AGAAAAAAAAAD3/w8AGAAAAAAAAAD2/w8ADAAAAAAAAAD1/w8AGAAAAAAAAAD0/w8AGAAAAAAAAAD0/xAAGAAAAAAAAADt/w8ADgAAAAAAAADz/w8ACQAAAAAAAADz/xAADgAAAAAAAAAGAA8AEwAAAAAAAAAHABAAEwAAAAAAAAAHABEAEwAAAAAAAAAGABAACQAAAAAAAADt/xAAEwAAAAAAAADu/w8AEwAAAAAAAADu/xAAEgAAAAAAAADv/xAADQAAAAAAAADw/xAADgAAAAAAAADx/xAACQAAAAAAAADy/xAAEgAAAAAAAADy/w8ACQAAAAAAAADx/w8ACQAAAAAAAADw/w8ADgAAAAAAAADv/w8AEgAAAAAAAAAHAA8ADgAAAAAAAAAIAA8ADQAAAAAAAAAIABAACwAAAAAAAAAJABAADQAAAAAAAAAKABAADQAAAAAAAAALABAADQAAAAAAAAAMABAADQAAAAAAAAANABAADQAAAAAAAAAJAA8ACwAAAAAAAAAKAA8ACwAAAAAAAAALAA8ADAAAAAAAAAAMAA8ADAAAAAAAAAANAA8ACwAAAAAAAAARAA8ACQAAAAAAAAAPABAACQAAAAAAAAARABAABgAAAAAAAAASAA8ABgAAAAAAAAASABAABgAAAAAAAAAQAA8ABgAAAAAAAAAOAA8ABgAAAAAAAAAOABAABgAAAAAAAAAPAA8ABgAAAAAAAAAQABAABgAAAAAAAAATAA4AAQAAAAAAAAATAA0AAQAAAAAAAAATAAwAAQAAAAAAAAATAAsAAQAAAAAAAAATAAoAAQAAAAAAAAATAAEAAQAAAAAAAAATAAIAAQAAAAAAAAATAAMAAQAAAAAAAAATAAQAAQAAAAAAAAATAAUAAQAAAAAAAAATAAYAAQAAAAAAAAATAAcAAQAAAAAAAAATAAgAAQAAAAAAAAATAAkAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_141a6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -114.0
+offset_top = -17.0
+offset_right = 153.0
+offset_bottom = 52.0
+text = "You are unlike the others."
+script = ExtResource("28_gvi84")
+
+[node name="PlayerCutscene" parent="." instance=ExtResource("29_gvi84")]
+position = Vector2(62, 206.00002)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-193, 131)
+shape = SubResource("RectangleShape2D_gvi84")
+
+[node name="DungeonMasterDeath00" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-201, 32)
+scale = Vector2(1.2, 1.2875)
+texture = ExtResource("27_jcoqo")

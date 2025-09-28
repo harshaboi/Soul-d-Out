@@ -48,17 +48,6 @@ func _process(_delta):
 			await get_tree().create_timer(0.1).timeout
 		self.add_child(floorthingy)
 
-	# Duplicate ground tiles based on player movement
-	var thingyfloor = get_node("GroundTileMap")
-	var floorthingy = thingyfloor.duplicate()
-	if Input.is_action_pressed("right"):
-		floorthingy.position.x = player.global_position.x + 100
-		await get_tree().create_timer(0.1).timeout
-	elif Input.is_action_pressed("left"):
-		floorthingy.position.x = player.global_position.x - 100
-		await get_tree().create_timer(0.1).timeout
-	self.add_child(floorthingy)
-
 # ---------------- Enemy Spawning ----------------
 func _on_spawn_timer_timeout():
 	if enemies_spawned.size() >= MaxEnemies:
