@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="21_3vjad"]
 [ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="22_yt0h1"]
 [ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="23_vd78s"]
-[ext_resource type="AudioStream" uid="uid://c8aycyb6jnpju" path="res://explosion.wav" id="24_3vjad"]
+[ext_resource type="AudioStream" uid="uid://cxcbmponkmy4a" path="res://jixaw-metal-pipe-falling-sound.mp3" id="24_3vjad"]
 [ext_resource type="AudioStream" uid="uid://bht088enunm7s" path="res://hitHurt (1).wav" id="25_yt0h1"]
 [ext_resource type="AudioStream" uid="uid://bwx14rxf18iid" path="res://hitHurt.wav" id="26_vd78s"]
 
@@ -182,7 +182,7 @@ texture = ExtResource("23_vd78s")
 
 [node name="MOVE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_3vjad")
-volume_db = 24.0
+volume_db = 1.0
 
 [node name="ATTACK" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_yt0h1")
