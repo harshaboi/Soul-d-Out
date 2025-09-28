@@ -4,12 +4,14 @@ extends Node2D
 # ---------------- Exports ----------------
 @export var PlayerScene: PackedScene
 @export var EnemyScene: PackedScene
-@export var GroundLayer: TileMapLayer     # Assign your ground TileMapLayer here
+@export var GroundLayer: TileMapLayer
 @export var MaxEnemies: int = 5
 @export var SpawnInterval: float = 3.0
+@export var GroundTileID: int = 0   # Tile ID to use for ground tiles
+@export var InitialGroundLength: int = 20
 
 # ---------------- Variables ----------------
-var player: Node
+var player: Node2D
 var enemies_spawned: Array = []
 var spawn_timer: Timer
 
@@ -17,12 +19,15 @@ var spawn_timer: Timer
 func _ready():
 	randomize()
 
-	# Find existing player (if placed in editor), otherwise spawn one
+	# Spawn or find player
 	player = get_node_or_null("Player")
 	if player == null and PlayerScene:
 		player = PlayerScene.instantiate()
 		add_child(player)
 		player.global_position = Vector2(100, 200)
+
+	# Generate initial ground
+	extend_ground(0, InitialGroundLength)
 
 	# Setup spawn timer
 	spawn_timer = Timer.new()
@@ -44,14 +49,10 @@ func extend_ground_if_needed():
 	var player_x = player.global_position.x
 	var rightmost_x = get_rightmost_ground_x()
 
-	# Extend ground ahead of player
 	if player_x + 400 > rightmost_x * GroundLayer.tile_set.tile_size.x:
-		extend_ground(rightmost_x + 1, 10)  # Add 10 tiles ahead
+		extend_ground(rightmost_x + 1, 10)
 
 func get_rightmost_ground_x() -> int:
-	if not GroundLayer:
-		return 0
-
 	var used_cells = GroundLayer.get_used_cells()
 	if used_cells.is_empty():
 		return 0
@@ -68,7 +69,7 @@ func extend_ground(start_x: int, count: int):
 
 	for i in range(count):
 		var cell_pos = Vector2i(start_x + i, 0)
-		GroundLayer.set_cell(cell_pos, 0)  # Place ground using source ID 0
+		GroundLayer.set_cell(cell_pos, GroundTileID)
 
 # ---------------- Enemy Spawning ----------------
 func _on_spawn_timer_timeout():
@@ -85,7 +86,6 @@ func _on_spawn_timer_timeout():
 	add_child(enemy)
 	enemies_spawned.append(enemy)
 
-	# Connect enemy death signal if it exists
 	if enemy.has_signal("died"):
 		enemy.died.connect(func(): _on_enemy_died(enemy))
 
@@ -98,17 +98,14 @@ func get_valid_ground_positions() -> Array:
 	if not GroundLayer:
 		return positions
 
-	var used_cells = GroundLayer.get_used_cells()
-	for cell in used_cells:
+	for cell in GroundLayer.get_used_cells():
 		var tile_id = GroundLayer.get_cell_source_id(cell)
 		if tile_id == -1:
 			continue
 
-		# Check the tile above
 		var above_cell = Vector2i(cell.x, cell.y - 1)
 		var above_id = GroundLayer.get_cell_source_id(above_cell)
 
-		# Only allow spawn if space above is empty
 		if above_id == -1:
 			var world_pos = GroundLayer.map_to_local(cell)
 			world_pos.y -= GroundLayer.tile_set.tile_size.y

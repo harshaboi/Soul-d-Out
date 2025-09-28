@@ -1,3 +1,4 @@
+
 extends CharacterBody2D
 
 # ---------------- Movement ----------------
@@ -27,9 +28,11 @@ var checkpoint_position: Vector2
 func _ready():
 	checkpoint_position = global_position
 	add_to_group("player")
+
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
+
 	update_health_ui()
 	update_coin_ui()
 	update_soul_ui()
@@ -52,8 +55,12 @@ func _physics_process(delta: float) -> void:
 	if direction != 0:
 		velocity.x = direction * SPEED
 		sprite.flip_h = direction < 0
+		if is_on_floor():
+			sprite.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
+		if is_on_floor():
+			sprite.play("idle")
 
 	move_and_slide()
 
@@ -63,21 +70,21 @@ func _physics_process(delta: float) -> void:
 
 # ---------------- Process ----------------
 func _process(_delta):
-	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
-		sprite.play("walk")
-	else:
-		sprite.play("idle")
-
-	# Attack
+	# Attack input
 	if Input.is_action_just_pressed("attack"):
 		attack()
 
 # ---------------- Attack ----------------
 func attack():
-	if attack_area:
-		attack_area.monitoring = true
-		await get_tree().create_timer(0.2).timeout
-		attack_area.monitoring = false
+	if not attack_area:
+		return
+
+	sprite.play("attack")
+	attack_area.monitoring = true
+
+	# Disable hitbox after short delay
+	await get_tree().create_timer(0.2).timeout
+	attack_area.monitoring = false
 
 # ---------------- Attack Area Signal ----------------
 func _on_attack_area_body_entered(body: Node2D) -> void:

@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://hlvr6ua0kste" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_1.png" id="14_ictha"]
 [ext_resource type="Texture2D" uid="uid://difuunn6i5fuh" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_2.png" id="15_1jgrc"]
 [ext_resource type="Texture2D" uid="uid://bxjlkgajg8q23" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_3.png" id="16_7wy67"]
-[ext_resource type="PackedScene" path="res://UI.tscn" id="18_h84ma"]
+[ext_resource type="PackedScene" uid="uid://djwynl3645tuc" path="res://UI.tscn" id="18_h84ma"]
 [ext_resource type="Texture2D" uid="uid://x3gwi4pxrule" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_1.png" id="19_47wu6"]
 [ext_resource type="Texture2D" uid="uid://kp0161iw3lvx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_2.png" id="20_2n1s8"]
 [ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="21_3vjad"]
@@ -99,7 +99,7 @@ animations = [{
 size = Vector2(30, 62)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2n1s8"]
-size = Vector2(50, 62)
+size = Vector2(102, 62)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rv870")
@@ -124,7 +124,7 @@ one_shot = true
 [node name="AttackArea" type="Area2D" parent="."]
 
 [node name="AttackArea" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(4, 14)
+position = Vector2(30, 14)
 shape = SubResource("RectangleShape2D_2n1s8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -134,6 +134,7 @@ zoom = Vector2(2, 2)
 auto_translate_mode = 1
 
 [node name="SoulLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
 offset_left = 325.0
 offset_top = -200.0
 offset_right = 384.0
@@ -141,6 +142,7 @@ offset_bottom = -177.0
 text = "Souls: 0"
 
 [node name="CoinLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
 offset_left = 325.0
 offset_top = -175.0
 offset_right = 386.0
@@ -148,7 +150,6 @@ offset_bottom = -152.0
 text = "Coins: 0"
 
 [node name="HeartsContainer" type="Control" parent="Camera2D/UI"]
-layout_mode = 3
 anchors_preset = 0
 offset_left = 200.0
 offset_top = -340.0
