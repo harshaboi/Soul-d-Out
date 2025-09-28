@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://c7a1etxw8u34f"]
+[gd_scene load_steps=55 format=4 uid="uid://c7a1etxw8u34f"]
 
 [ext_resource type="Texture2D" uid="uid://carje8rxdqnh2" path="res://fantasy-endless-hole-landscape.jpg" id="1_csoo1"]
 [ext_resource type="Texture2D" uid="uid://cvjq3ho11h3kw" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_1_16x16.png" id="2_p4wwd"]
@@ -26,6 +26,8 @@
 [ext_resource type="Texture2D" uid="uid://csmwca8o4d7ni" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_8_16x16.png" id="24_qnxs6"]
 [ext_resource type="Texture2D" uid="uid://b4y7yxr51sve5" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_9_16x16.png" id="25_6lvua"]
 [ext_resource type="Texture2D" uid="uid://hiwqustdpst1" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_10_16x16.png" id="26_aefbs"]
+[ext_resource type="Texture2D" uid="uid://e86tnhi85vxa" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Bosses/Dungeon Master/DungeonMaster_Death_00.png" id="27_jcoqo"]
+[ext_resource type="Script" uid="uid://co23xec2bqbb1" path="res://rich_text_label.gd" id="28_gvi84"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7grc"]
 texture = ExtResource("2_p4wwd")
@@ -169,3 +171,15 @@ zoom = Vector2(3.2, 3.2)
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAD2/xAAAQAAAAAAAAD6/xAAAwAAAAAAAAD7/xAAAgAAAAAAAAD3/xAAAgAAAAAAAAD4/xAAAwAAAAAAAAD5/xAACQAAAAAAAAD8/xAAAwAAAAAAAAD8/w8ABAAAAAAAAAD7/w8ABAAAAAAAAAD5/w8ABAAAAAAAAAD1/xAABAAAAAAAAAD9/w8ABAAAAAAAAAD9/xAABAAAAAAAAAD+/xAABAAAAAAAAAD+/w8AEwAAAAAAAAD//w8ABAAAAAAAAAD//xAADAAAAAAAAAAAABAABAAAAAAAAAAAAA8ABAAAAAAAAAABAA8ABAAAAAAAAAACAA8ACwAAAAAAAAACABAACwAAAAAAAAABABAACwAAAAAAAAADAA8ACwAAAAAAAAAEABAACwAAAAAAAAAEAA8AGAAAAAAAAAAFABAAGAAAAAAAAAAFAA8ACQAAAAAAAAADABAAGAAAAAAAAAD6/w8AGAAAAAAAAAD4/w8AGAAAAAAAAAD3/w8AGAAAAAAAAAD2/w8ADAAAAAAAAAD1/w8AGAAAAAAAAAD0/w8AGAAAAAAAAAD0/xAAGAAAAAAAAADt/w8ADgAAAAAAAADz/w8ACQAAAAAAAADz/xAADgAAAAAAAAAGAA8AEwAAAAAAAAAHABAAEwAAAAAAAAAHABEAEwAAAAAAAAAGABAACQAAAAAAAADt/xAAEwAAAAAAAADu/w8AEwAAAAAAAADu/xAAEgAAAAAAAADv/xAADQAAAAAAAADw/xAADgAAAAAAAADx/xAACQAAAAAAAADy/xAAEgAAAAAAAADy/w8ACQAAAAAAAADx/w8ACQAAAAAAAADw/w8ADgAAAAAAAADv/w8AEgAAAAAAAAAHAA8ADgAAAAAAAAAIAA8ADQAAAAAAAAAIABAACwAAAAAAAAAJABAADQAAAAAAAAAKABAADQAAAAAAAAALABAADQAAAAAAAAAMABAADQAAAAAAAAANABAADQAAAAAAAAAJAA8ACwAAAAAAAAAKAA8ACwAAAAAAAAALAA8ADAAAAAAAAAAMAA8ADAAAAAAAAAANAA8ACwAAAAAAAAARAA8ACQAAAAAAAAAPABAACQAAAAAAAAARABAABgAAAAAAAAASAA8ABgAAAAAAAAASABAABgAAAAAAAAAQAA8ABgAAAAAAAAAOAA8ABgAAAAAAAAAOABAABgAAAAAAAAAPAA8ABgAAAAAAAAAQABAABgAAAAAAAAA=")
 tile_set = SubResource("TileSet_141a6")
+
+[node name="DungeonMasterDeath00" type="Sprite2D" parent="."]
+position = Vector2(-233, 78)
+texture = ExtResource("27_jcoqo")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = -162.0
+offset_top = 22.0
+offset_right = 105.0
+offset_bottom = 91.0
+text = "You are unlike the others."
+script = ExtResource("28_gvi84")
