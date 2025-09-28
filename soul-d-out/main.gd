@@ -2,9 +2,9 @@ extends Node2D
 
 # ---------------- Exports ----------------
 @export var PlayerScene: PackedScene
-@export var Main: PackedScene
+@export var EnemyScene: PackedScene
 @export var GroundTileMap: TileMap
-@export var MaxEnemies: int = 10
+@export var MaxEnemies: int = 5
 @export var SpawnInterval: float = 3.0
 @export var GroundTileID: int = 0  # Tile ID for your ground
 
@@ -39,10 +39,9 @@ func _process(_delta):
 	if player.velocity.x == player.velocity.x  :
 		var thingyfloor = get_node("GroundTileMap")
 		var floorthingy = thingyfloor.duplicate()
-		if Input.is_action_pressed("right"):
-			floorthingy.position.x = player.global_position.x-100
-			await get_tree().create_timer(0.1).timeout
 		if Input.is_action_pressed("left"):
+			floorthingy.position.x = player.global_position.x-100
+		if Input.is_action_pressed("right"):
 			floorthingy.position.x = player.global_position.x	
 			await get_tree().create_timer(0.1).timeout
 		self.add_child(floorthingy)
@@ -58,7 +57,7 @@ func _on_spawn_timer_timeout():
 		return
 
 	var random_pos = positions[randi() % positions.size()]
-	var enemy = Main.instantiate()
+	var enemy = EnemyScene.instantiate()
 	enemy.global_position = random_pos
 	add_child(enemy)
 	enemies_spawned.append(enemy)
