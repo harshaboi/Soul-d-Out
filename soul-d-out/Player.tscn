@@ -182,7 +182,7 @@ texture = ExtResource("23_vd78s")
 
 [node name="MOVE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("24_3vjad")
-volume_db = 1.0
+volume_db = 24.0
 
 [node name="ATTACK" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("25_yt0h1")
