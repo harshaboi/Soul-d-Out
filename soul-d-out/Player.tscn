@@ -1,0 +1,177 @@
+[gd_scene load_steps=27 format=3 uid="uid://bb8ch54hftvgi"]
+
+[ext_resource type="Texture2D" uid="uid://bsm4uje2xuaoq" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_0.png" id="1_jatw7"]
+[ext_resource type="Script" uid="uid://dqmjh6vp2vtlm" path="res://player.gd" id="1_rv870"]
+[ext_resource type="Texture2D" uid="uid://wgkkx6ndek81" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_1.png" id="2_rv870"]
+[ext_resource type="Texture2D" uid="uid://dkpnbrhot1g3r" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_2.png" id="3_efikj"]
+[ext_resource type="Texture2D" uid="uid://cnphbmjs061mr" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_3.png" id="4_itxgx"]
+[ext_resource type="Texture2D" uid="uid://blqw0iyggi3f5" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_0.png" id="5_cgsek"]
+[ext_resource type="Texture2D" uid="uid://ddf6iveif7eul" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_1.png" id="6_0pi4m"]
+[ext_resource type="Texture2D" uid="uid://bjr4yym0qhl0u" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_2.png" id="7_sg6sq"]
+[ext_resource type="Texture2D" uid="uid://ctu02o0gcnick" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_3.png" id="8_h84ma"]
+[ext_resource type="Texture2D" uid="uid://b0hnb36jv2vy2" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_0.png" id="9_47wu6"]
+[ext_resource type="Texture2D" uid="uid://co0ehd2oa8kvd" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_1.png" id="10_2n1s8"]
+[ext_resource type="Texture2D" uid="uid://b78dhnmbwli7k" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_3.png" id="11_3vjad"]
+[ext_resource type="Texture2D" uid="uid://cqdcorm7aruim" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_2.png" id="12_yt0h1"]
+[ext_resource type="Texture2D" uid="uid://cam8mm250xter" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_0.png" id="13_vd78s"]
+[ext_resource type="Texture2D" uid="uid://hlvr6ua0kste" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_1.png" id="14_ictha"]
+[ext_resource type="Texture2D" uid="uid://difuunn6i5fuh" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_2.png" id="15_1jgrc"]
+[ext_resource type="Texture2D" uid="uid://bxjlkgajg8q23" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_3.png" id="16_7wy67"]
+[ext_resource type="PackedScene" path="res://UI.tscn" id="18_h84ma"]
+[ext_resource type="Texture2D" uid="uid://x3gwi4pxrule" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_1.png" id="19_47wu6"]
+[ext_resource type="Texture2D" uid="uid://kp0161iw3lvx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_2.png" id="20_2n1s8"]
+[ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="21_3vjad"]
+[ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="22_yt0h1"]
+[ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="23_vd78s"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h84ma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_jatw7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rv870")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_efikj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_itxgx")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cgsek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0pi4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sg6sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h84ma")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_47wu6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_2n1s8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_3vjad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_yt0h1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_vd78s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ictha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_1jgrc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_7wy67")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47wu6"]
+size = Vector2(30, 62)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n1s8"]
+size = Vector2(102, 62)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rv870")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -36)
+sprite_frames = SubResource("SpriteFrames_h84ma")
+animation = &"attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 14)
+shape = SubResource("RectangleShape2D_47wu6")
+
+[node name="AttackActiveTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="AttackArea" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(30, 14)
+shape = SubResource("RectangleShape2D_2n1s8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="UI" parent="Camera2D" instance=ExtResource("18_h84ma")]
+auto_translate_mode = 1
+
+[node name="SoulLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -200.0
+offset_right = 384.0
+offset_bottom = -177.0
+text = "Souls: 0"
+
+[node name="CoinLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -175.0
+offset_right = 386.0
+offset_bottom = -152.0
+text = "Coins: 0"
+
+[node name="HeartsContainer" type="Control" parent="Camera2D/UI"]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -340.0
+offset_right = 240.0
+offset_bottom = -300.0
+
+[node name="Heart 1" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("19_47wu6")
+
+[node name="Heart 2" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("20_2n1s8")
+
+[node name="Heart 3" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("21_3vjad")
+
+[node name="Heart 4" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("22_yt0h1")
+
+[node name="Heart 5" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("23_vd78s")

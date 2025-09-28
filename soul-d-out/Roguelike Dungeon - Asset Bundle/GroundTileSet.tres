@@ -1,0 +1,33 @@
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://ckku6y4sdceuy"]
+
+[ext_resource type="Texture2D" uid="uid://br1b2kahw2uc1" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles Platformer/BasicGreenTiles/Dirt_1_16x16.png" id="1_q6trk"]
+[ext_resource type="Texture2D" uid="uid://d3xj8wq72c540" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles Platformer/BasicGreenTiles/Dirt_2_16x16.png" id="2_ygybw"]
+[ext_resource type="Texture2D" uid="uid://d3xho3o8ujper" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles Platformer/BasicGreenTiles/Green_1_16x16.png" id="3_qvk2x"]
+[ext_resource type="Texture2D" uid="uid://bg15k10icl2e7" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles Platformer/BasicGreenTiles/Green_2_16x16.png" id="4_fm14n"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_raaqm"]
+texture = ExtResource("1_q6trk")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j48jl"]
+texture = ExtResource("2_ygybw")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rllb"]
+texture = ExtResource("3_qvk2x")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0lcw8"]
+texture = ExtResource("4_fm14n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[resource]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_raaqm")
+sources/2 = SubResource("TileSetAtlasSource_j48jl")
+sources/3 = SubResource("TileSetAtlasSource_5rllb")
+sources/4 = SubResource("TileSetAtlasSource_0lcw8")
