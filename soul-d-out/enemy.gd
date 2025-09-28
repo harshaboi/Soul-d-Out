@@ -8,7 +8,7 @@ const COINS_ON_DEATH: int = 5
 const SOULS_ON_DEATH: int = 1
 
 var hp: int = MAX_HP
-var player: Node2D = null
+#var player: Node2D = null
 
 # ---------------- Node References ----------------
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -61,7 +61,7 @@ func take_damage(amount: int):
 
 # ---------------- Die ----------------
 func die():
-var rng = RandomNumberGenerator.new()
+	var rng = RandomNumberGenerator.new()
 	if player:
 		if player.has_method("add_coin"):
 			if player.hasGreed:
