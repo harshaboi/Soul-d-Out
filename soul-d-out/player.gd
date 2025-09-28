@@ -76,7 +76,6 @@ func _process(_delta):
 		SPEED = 400;
 		attack_damage = 2;
 
-# ---------------- Attack ----------------
 func attack():
 	$ATTACK.play()
 	if attack_area:
@@ -109,7 +108,7 @@ func respawn():
 	update_health_ui()
 
 # ---------------- Coins/Souls ----------------
-func add_coin(amount: int = 1):
+func add_coins(amount: int = 1):
 	coins += amount
 	update_coin_ui()
 

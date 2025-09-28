@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://c7a1etxw8u34f"]
+[gd_scene load_steps=58 format=4 uid="uid://c7a1etxw8u34f"]
 
 [ext_resource type="Texture2D" uid="uid://carje8rxdqnh2" path="res://fantasy-endless-hole-landscape.jpg" id="1_csoo1"]
 [ext_resource type="Texture2D" uid="uid://cvjq3ho11h3kw" path="res://Roguelike Dungeon - Asset Bundle/Starter Tiles - Platformer/Starter Tiles Platformer/FireTiles/Fire_1_16x16.png" id="2_p4wwd"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://e86tnhi85vxa" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Bosses/Dungeon Master/DungeonMaster_Death_00.png" id="27_jcoqo"]
 [ext_resource type="Script" uid="uid://co23xec2bqbb1" path="res://rich_text_label.gd" id="28_gvi84"]
 [ext_resource type="PackedScene" uid="uid://ciilbufuoncel" path="res://PlayerCutscene.tscn" id="29_gvi84"]
+[ext_resource type="AudioStream" uid="uid://dti6sqg7trhri" path="res://boo-hahahaha-257718.mp3" id="30_sqyus"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o7grc"]
 texture = ExtResource("2_p4wwd")
@@ -204,6 +205,11 @@ offset_right = 153.0
 offset_bottom = 52.0
 text = "You are unlike the others."
 script = ExtResource("28_gvi84")
+
+[node name="LAUGJ" type="AudioStreamPlayer2D" parent="RichTextLabel"]
+position = Vector2(114, 17)
+stream = ExtResource("30_sqyus")
+volume_db = 24.0
 
 [node name="PlayerCutscene" parent="." instance=ExtResource("29_gvi84")]
 position = Vector2(62, 206.00002)

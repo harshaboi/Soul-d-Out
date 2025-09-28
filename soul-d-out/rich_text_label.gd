@@ -6,6 +6,7 @@ var texts = ["You are unlike the others", "Fetch me one soul each day, or else y
 var current_index = 0
 
 func _ready():
+	$LAUGJ.play()
 	text = texts[current_index]  # Set initial text
 
 func _input(event):
