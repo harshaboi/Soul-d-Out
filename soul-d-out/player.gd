@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 
 	# Jump
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
+		$MOVE.play()
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
 
@@ -64,6 +65,7 @@ func _process(_delta):
 	# Animations
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		sprite.play("walk")
+		$MOVE.play()
 	else:
 		sprite.play("idle")
 
@@ -73,6 +75,7 @@ func _process(_delta):
 
 # ---------------- Attack ----------------
 func attack():
+	$ATTACK.play()
 	if attack_area:
 		sprite.play("attack") # play full animation
 		attack_area.monitoring = true
@@ -86,6 +89,7 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 # ---------------- Damage ----------------
 func take_damage(amount: int):
+	$"TAKE DAMAGE".play()
 	hp -= amount
 	if hp < 0:
 		hp = 0

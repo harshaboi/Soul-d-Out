@@ -4,7 +4,7 @@ extends Node2D
 @export var PlayerScene: PackedScene
 @export var EnemyScene: PackedScene
 @export var GroundTileMap: TileMap
-@export var MaxEnemies: int = 5
+@export var MaxEnemies: int = 2
 @export var SpawnInterval: float = 5.0
 @export var GroundTileID: int = 0  # Tile ID for your ground
 
@@ -41,9 +41,9 @@ func _process(_delta):
 	if player.velocity.x !=0  :
 		var thingyfloor = get_node("GroundTileMap")
 		var floorthingy = thingyfloor.duplicate()
-		if Input.is_action_pressed("left"):
+		if Input.is_action_just_pressed("left"):
 			floorthingy.position.x = player.global_position.x-100
-		if Input.is_action_pressed("right"):
+		if Input.is_action_just_pressed("right"):
 			floorthingy.position.x = player.global_position.x	
 			await get_tree().create_timer(0.1).timeout
 		self.add_child(floorthingy)
