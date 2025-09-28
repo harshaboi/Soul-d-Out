@@ -1,78 +1,77 @@
 extends CharacterBody2D
 
-# ---------------- Stats ----------------
-const SPEED: float = 50.0
-const MAX_HP: int = 3
-const ATTACK_DAMAGE: int = 1
-const COINS_ON_DEATH: int = 5
-const SOULS_ON_DEATH: int = 1
+signal died
 
-var hp: int = MAX_HP
-#var player: Node2D = null
+# ---------------- Stats ----------------
+var hp: int = 3
+var speed: float = 100.0
+var attack_damage: int = 1
+var gravity: float = 1200.0
+var attack_cooldown: float = 1.0
+var coins_on_death: int = 3
+var souls_on_death: int = 1
+
+# ---------------- State ----------------
+var player: Node = null
+var can_attack: bool = true
+var aggro: bool = false   # Only attack after provoked
 
 # ---------------- Node References ----------------
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var attack_area: Area2D = $AttackArea
-var player: Node
-
-# ---------------- Signals ----------------
-signal died
 
 # ---------------- Ready ----------------
 func _ready():
-	# Add to enemy group
 	add_to_group("enemy")
 
-	# Disable attack area initially
-	if attack_area:
-		attack_area.monitoring = true
-		attack_area.body_entered.connect(_on_attack_area_body_entered)
+	# Find player safely
+	player = get_tree().get_root().find_child("Player", true, false)
 
-	# Correct way to find the player in Godot 4
-	player = get_tree().current_scene.get_node_or_null("Player")
+	# Connect attack area
+	if attack_area:
+		attack_area.body_entered.connect(_on_attack_area_body_entered)
 
 # ---------------- Physics ----------------
 func _physics_process(delta: float) -> void:
-	# Gravity
+	# Apply gravity
 	if not is_on_floor():
-		velocity += get_gravity() * delta
-	if player:
-		# Move smoothly towards player
+		velocity.y += gravity * delta
+	else:
+		velocity.y = 0
+
+	# Move only if provoked
+	if player and aggro:
 		var direction = (player.global_position - global_position).normalized()
-		velocity.x = direction.x * SPEED
-		move_and_slide()
+		velocity.x = direction.x * speed
+	else:
+		velocity.x = 0
 
-# ---------------- Attack Collision ----------------
-func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body.is_in_group("player") and body.has_method("take_damage"):
-		body.take_damage(ATTACK_DAMAGE)
+	move_and_slide()
 
-# ---------------- Take Damage ----------------
+# ---------------- Damage ----------------
 func take_damage(amount: int):
 	hp -= amount
+	aggro = true  # Enemy becomes aggressive when attacked
 	if hp <= 0:
 		die()
-	else:
-		# Optional: briefly activate attack area when hit
-		if attack_area:
-			attack_area.monitoring = true
-			await get_tree().create_timer(0.5).timeout
 
+# ---------------- Attack ----------------
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if aggro and body.is_in_group("player") and can_attack:
+		if body.has_method("take_damage"):
+			body.take_damage(attack_damage)
+		can_attack = false
+		await get_tree().create_timer(attack_cooldown).timeout
+		can_attack = true
 
-# ---------------- Die ----------------
+# ---------------- Death ----------------
 func die():
-	var rng = RandomNumberGenerator.new()
+	# Drop rewards for player
 	if player:
 		if player.has_method("add_coin"):
-			if player.hasGreed:
-				player.add_coin(COINS_ON_DEATH + 3)
-			else:
-				player.add_coins(COINS_ON_DEATH)
+			player.add_coin(coins_on_death)
 		if player.has_method("add_soul"):
-			if player.hasGluttony:
-				player.add_soul(SOULS_ON_DEATH)
-			else:
-				player.add_soul(SOULS_ON_DEATH + (SOULS_ON_DEATH * rng.randi_range(0, 1)))
-	
+			player.add_soul(souls_on_death)
+
 	emit_signal("died")
 	queue_free()
