@@ -1,31 +1,193 @@
-[gd_scene load_steps=7 format=4 uid="uid://dmb0mc3ccsbni"]
+[gd_scene load_steps=30 format=3 uid="uid://dcc1hh0uraw5v"]
 
-[ext_resource type="PackedScene" uid="uid://cxe7hmkp3idtp" path="res://Player.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://d0wfrlho248iw" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://vkeb1t5ccjew" path="res://enemy.tscn" id="2_h2yge"]
-[ext_resource type="AudioStream" uid="uid://5nhbt2xfi4fj" path="res://inferno-249756.mp3" id="5_7mycd"]
-[ext_resource type="TileSet" uid="uid://ckku6y4sdceuy" path="res://Roguelike Dungeon - Asset Bundle/GroundTileSet.tres" id="5_lquwl"]
-[ext_resource type="PackedScene" uid="uid://c7a1etxw8u34f" path="res://Intro Custscene.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://dqmjh6vp2vtlm" path="res://player.gd" id="1_lswn8"]
+[ext_resource type="Texture2D" uid="uid://bsm4uje2xuaoq" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_0.png" id="2_a6jrf"]
+[ext_resource type="Texture2D" uid="uid://wgkkx6ndek81" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_1.png" id="3_xuqvo"]
+[ext_resource type="Texture2D" uid="uid://dkpnbrhot1g3r" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_2.png" id="4_qsp4k"]
+[ext_resource type="Texture2D" uid="uid://cnphbmjs061mr" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Attack_Special_3.png" id="5_kq58d"]
+[ext_resource type="Texture2D" uid="uid://blqw0iyggi3f5" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_0.png" id="6_seu75"]
+[ext_resource type="Texture2D" uid="uid://ddf6iveif7eul" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_1.png" id="7_htxhm"]
+[ext_resource type="Texture2D" uid="uid://bjr4yym0qhl0u" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_2.png" id="8_jq2sk"]
+[ext_resource type="Texture2D" uid="uid://ctu02o0gcnick" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Death_Special_3.png" id="9_4k2k6"]
+[ext_resource type="Texture2D" uid="uid://b0hnb36jv2vy2" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_0.png" id="10_0rl1p"]
+[ext_resource type="Texture2D" uid="uid://co0ehd2oa8kvd" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_1.png" id="11_ok6jj"]
+[ext_resource type="Texture2D" uid="uid://b78dhnmbwli7k" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_3.png" id="12_facbu"]
+[ext_resource type="Texture2D" uid="uid://cqdcorm7aruim" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Idle_Special_2.png" id="13_b1qrp"]
+[ext_resource type="Texture2D" uid="uid://cam8mm250xter" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_0.png" id="14_come4"]
+[ext_resource type="Texture2D" uid="uid://hlvr6ua0kste" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_1.png" id="15_h8e4i"]
+[ext_resource type="Texture2D" uid="uid://difuunn6i5fuh" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_2.png" id="16_4lmeg"]
+[ext_resource type="Texture2D" uid="uid://bxjlkgajg8q23" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Player/Special/Player_Walk_Special_3.png" id="17_0cp0l"]
+[ext_resource type="PackedScene" uid="uid://djwynl3645tuc" path="res://ui.tscn" id="18_d2t1y"]
+[ext_resource type="Texture2D" uid="uid://x3gwi4pxrule" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_1.png" id="19_gngh3"]
+[ext_resource type="Texture2D" uid="uid://kp0161iw3lvx" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_2.png" id="20_0n3wm"]
+[ext_resource type="Texture2D" uid="uid://ddtcssk3ww6u3" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_3.png" id="21_qnost"]
+[ext_resource type="Texture2D" uid="uid://c4isfd2nc73m6" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_4.png" id="22_wnkbs"]
+[ext_resource type="Texture2D" uid="uid://cox46jp3aq0ai" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/HUD/HP/Value/HP_Value_5.png" id="23_f6a44"]
+[ext_resource type="AudioStream" uid="uid://cxcbmponkmy4a" path="res://jixaw-metal-pipe-falling-sound.mp3" id="24_0cbny"]
+[ext_resource type="AudioStream" uid="uid://bht088enunm7s" path="res://hitHurt (1).wav" id="25_hrvbo"]
+[ext_resource type="AudioStream" uid="uid://bwx14rxf18iid" path="res://hitHurt.wav" id="26_uypp3"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_h2yge")
-PlayerScene = ExtResource("1_0xm2m")
-EnemyScene = ExtResource("2_h2yge")
+[sub_resource type="SpriteFrames" id="SpriteFrames_h84ma"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_a6jrf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xuqvo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qsp4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_kq58d")
+}],
+"loop": true,
+"name": &"attack",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_seu75")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_htxhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jq2sk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_4k2k6")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_0rl1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ok6jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_facbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_b1qrp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_come4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_h8e4i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4lmeg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_0cp0l")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 8.0
+}]
 
-[node name="Enemy" parent="." instance=ExtResource("2_h2yge")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47wu6"]
+size = Vector2(30, 62)
 
-[node name="Player" parent="." instance=ExtResource("1_0xm2m")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2n1s8"]
+size = Vector2(185, 62)
 
-[node name="GroundTileMap" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("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AAA0AAQAAQAAAAAAAAA1AAQAAQAAAAAAAAA2AAQAAQAAAAAAAAA3AAQAAQAAAAAAAAA4AAQAAQAAAAAAAAA5AAQAAQAAAAAAAAAsAAMAAQAAAAAAAAAtAAMAAQAAAAAAAAAuAAMAAQAAAAAAAAAvAAMAAQAAAAAAAAAwAAMAAQAAAAAAAAAxAAMAAQAAAAAAAAAyAAMAAQAAAAAAAAAzAAMAAQAAAAAAAAA0AAMAAQAAAAAAAAA1AAMAAQAAAAAAAAA2AAMAAQAAAAAAAAA3AAMAAQAAAAAAAAA4AAMAAQAAAAAAAAA5AAMAAQAAAAAAAAAqAAUAAQAAAAAAAAArAAUAAQAAAAAAAAAsAAUAAQAAAAAAAAAtAAUAAQAAAAAAAAAuAAUAAQAAAAAAAAAvAAUAAQAAAAAAAAAwAAUAAQAAAAAAAAAxAAUAAQAAAAAAAAAyAAUAAQAAAAAAAAAzAAUAAQAAAAAAAAA0AAUAAQAAAAAAAAA1AAUAAQAAAAAAAAA2AAUAAQAAAAAAAAA3AAUAAQAAAAAAAAA4AAUAAQAAAAAAAAA5AAUAAQAAAAAAAAAqAAcAAQAAAAAAAAArAAcAAQAAAAAAAAAsAAcAAQAAAAAAAAAtAAcAAQAAAAAAAAAuAAcAAQAAAAAAAAAvAAcAAQAAAAAAAAAwAAcAAQAAAAAAAAAxAAcAAQAAAAAAAAAyAAcAAQAAAAAAAAAzAAcAAQAAAAAAAAA0AAcAAQAAAAAAAAA1AAcAAQAAAAAAAAA2AAcAAQAAAAAAAAA3AAcAAQAAAAAAAAA4AAcAAQAAAAAAAAA5AAcAAQAAAAAAAAAqAAYAAQAAAAAAAAArAAYAAQAAAAAAAAAsAAYAAQAAAAAAAAAtAAYAAQAAAAAAAAAuAAYAAQAAAAAAAAAvAAYAAQAAAAAAAAAwAAYAAQAAAAAAAAAxAAYAAQAAAAAAAAAyAAYAAQAAAAAAAAAzAAYAAQAAAAAAAAA0AAYAAQAAAAAAAAA1AAYAAQAAAAAAAAA2AAYAAQAAAAAAAAA3AAYAAQAAAAAAAAA4AAYAAQAAAAAAAAA5AAYAAQAAAAAAAAAqAAIAAwAAAAAAAAArAAIAAwAAAAAAAAAsAAIAAwAAAAAAAAAtAAIAAwAAAAAAAAAuAAIAAwAAAAAAAAAvAAIAAwAAAAAAAAAwAAIAAwAAAAAAAAAxAAIAAwAAAAAAAAAyAAIAAwAAAAAAAAAzAAIAAwAAAAAAAAA0AAIAAwAAAAAAAAA1AAIAAwAAAAAAAAA2AAIAAwAAAAAAAAA3AAIAAwAAAAAAAAA4AAIAAwAAAAAAAAA5AAIAAwAAAAAAAAA=")
-tile_set = ExtResource("5_lquwl")
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_lswn8")
 
-[node name="BgMusic" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_7mycd")
-volume_db = 12.0
-autoplay = true
-parameters/looping = true
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -36)
+sprite_frames = SubResource("SpriteFrames_h84ma")
+animation = &"attack"
 
-[node name="Node" type="Node" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-6, 14)
+shape = SubResource("RectangleShape2D_47wu6")
 
-[node name="Main Menu" parent="." instance=ExtResource("6_7mycd")]
+[node name="AttackActiveTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="AttackArea" type="CollisionShape2D" parent="AttackArea"]
+visibility_layer = 4
+position = Vector2(-11.5, 14)
+shape = SubResource("RectangleShape2D_2n1s8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+
+[node name="UI" parent="Camera2D" instance=ExtResource("18_d2t1y")]
+auto_translate_mode = 1
+
+[node name="SoulLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -150.0
+offset_right = 384.0
+offset_bottom = -127.0
+text = "Souls: 0"
+
+[node name="CoinLabel" type="Label" parent="Camera2D/UI"]
+layout_mode = 0
+offset_left = 325.0
+offset_top = -175.0
+offset_right = 386.0
+offset_bottom = -152.0
+text = "Coins: 0"
+
+[node name="HeartsContainer" type="Control" parent="Camera2D/UI"]
+anchors_preset = 0
+offset_left = 200.0
+offset_top = -340.0
+offset_right = 240.0
+offset_bottom = -300.0
+
+[node name="Heart 1" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("19_gngh3")
+
+[node name="Heart 2" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("20_0n3wm")
+
+[node name="Heart 3" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("21_qnost")
+
+[node name="Heart 4" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("22_wnkbs")
+
+[node name="Heart 5" type="TextureRect" parent="Camera2D/UI/HeartsContainer"]
+layout_mode = 0
+texture = ExtResource("23_f6a44")
+
+[node name="MOVE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_0cbny")
+volume_db = 1.0
+
+[node name="ATTACK" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_hrvbo")
+volume_db = 24.0
+
+[node name="TAKE DAMAGE" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("26_uypp3")
+volume_db = 24.0
