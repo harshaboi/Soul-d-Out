@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # ---------------- Stats ----------------
-const SPEED: float = 100.0
+const SPEED: float = 50.0
 const MAX_HP: int = 3
 const ATTACK_DAMAGE: int = 1
 const COINS_ON_DEATH: int = 5
@@ -24,14 +24,17 @@ func _ready():
 
 	# Disable attack area initially
 	if attack_area:
-		attack_area.monitoring = true
+		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
 
 	# Correct way to find the player in Godot 4
 	player = get_tree().current_scene.get_node_or_null("Player")
 
 # ---------------- Physics ----------------
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
+	# Gravity
+	if not is_on_floor():
+		velocity += get_gravity() * delta
 	if player:
 		# Move smoothly towards player
 		var direction = (player.global_position - global_position).normalized()
