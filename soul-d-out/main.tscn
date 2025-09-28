@@ -8,7 +8,7 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_h2yge")
 PlayerScene = ExtResource("1_0xm2m")
-Main = null
+EnemyScene = ExtResource("2_h2yge")
 
 [node name="Enemy" parent="." instance=ExtResource("2_h2yge")]
 

@@ -2,10 +2,10 @@ extends Node2D
 
 # ---------------- Exports ----------------
 @export var PlayerScene: PackedScene
-@export var Main: PackedScene
+@export var EnemyScene: PackedScene
 @export var GroundTileMap: TileMap
-@export var MaxEnemies: int = 10
-@export var SpawnInterval: float = 3.0
+@export var MaxEnemies: int = 5
+@export var SpawnInterval: float = 5.0
 @export var GroundTileID: int = 0  # Tile ID for your ground
 
 # ---------------- Variables ----------------
@@ -36,53 +36,40 @@ func _ready():
 
 # ---------------- Process ----------------
 func _process(_delta):
+	if not player:
+		return
 	if player.velocity.x == player.velocity.x  :
 		var thingyfloor = get_node("GroundTileMap")
 		var floorthingy = thingyfloor.duplicate()
-		if Input.is_action_pressed("right"):
-			floorthingy.position.x = player.global_position.x-100
-			await get_tree().create_timer(0.1).timeout
 		if Input.is_action_pressed("left"):
+			floorthingy.position.x = player.global_position.x-100
+		if Input.is_action_pressed("right"):
 			floorthingy.position.x = player.global_position.x	
 			await get_tree().create_timer(0.1).timeout
 		self.add_child(floorthingy)
 
-# ---------------- Terrain Generation ----------------
 # ---------------- Enemy Spawning ----------------
 func _on_spawn_timer_timeout():
 	if enemies_spawned.size() >= MaxEnemies:
 		return
 
-	var positions = get_valid_ground_positions()
-	if positions.size() == 0:
+	if not player:
 		return
 
-	var random_pos = positions[randi() % positions.size()]
-	var enemy = Main.instantiate()
-	enemy.global_position = random_pos
+	# Random x within ±100 pixels of the player
+	var spawn_x = player.global_position.x + randf_range(-100, 100)
+	var spawn_y = player.global_position.y  # same y as player
+
+	var enemy = EnemyScene.instantiate()
+	enemy.global_position = Vector2(spawn_x, spawn_y)
 	add_child(enemy)
 	enemies_spawned.append(enemy)
 
+	# Connect death signal
 	if enemy.has_signal("died"):
-		enemy.died.connect(Callable(self, "_on_enemy_died"), [enemy])
+		enemy.died.connect(Callable(self, "_on_enemy_died").bind(enemy))
+
 
 func _on_enemy_died(enemy):
 	if enemies_spawned.has(enemy):
 		enemies_spawned.erase(enemy)
-
-# ---------------- Helper Function ----------------
-func get_valid_ground_positions() -> Array:
-	var positions = []
-	if not GroundTileMap:
-		return positions
-
-	var used_cells = GroundTileMap.get_used_cells(0)  # layer 0
-	for cell in used_cells:
-		var tile_id = GroundTileMap.get_cell(0, cell.x, cell.y)
-		if tile_id == -1:
-			continue
-		var world_pos = GroundTileMap.map_to_world(cell)
-		world_pos.y -= GroundTileMap.cell_size.y  # place enemy on top of tile
-		positions.append(world_pos)
-	return positions
-	

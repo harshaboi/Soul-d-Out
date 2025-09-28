@@ -30,10 +30,6 @@ var checkpoint_position: Vector2
 func _ready():
 	checkpoint_position = global_position
 	add_to_group("player")
-<<<<<<< HEAD
-=======
-	
->>>>>>> ec16e8b1800ac6289a98f989c7341c11515e2eaa
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
@@ -49,7 +45,6 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		jump_count = 0
-	
 	# Jump
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
 		velocity.y = JUMP_VELOCITY
@@ -62,7 +57,6 @@ func _physics_process(delta: float) -> void:
 		sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-	
 	move_and_slide()
 	
 	# Respawn if falling
@@ -76,8 +70,7 @@ func _process(_delta):
 		sprite.play("walk")
 	else:
 		sprite.play("idle")
-	
-	# Attack
+	# Attack input
 	if Input.is_action_just_pressed("attack"):
 		attack()
 	if hasWrath:
@@ -87,12 +80,12 @@ func _process(_delta):
 # ---------------- Attack ----------------
 func attack():
 	if attack_area:
-		sprite.play("attack")
+		sprite.play("attack")  # full attack animation
 		attack_area.monitoring = true
 		await get_tree().create_timer(0.2).timeout
 		attack_area.monitoring = false
 
-# ---------------- Attack Area ----------------
+# ---------------- Attack Collision ----------------
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
 		body.take_damage(1)
@@ -104,6 +97,7 @@ func take_damage(amount: int):
 		hp = 0
 	update_health_ui()
 	if hp <= 0:
+		sprite.play("death")
 		respawn()
 		sprite.play("death")
 
@@ -114,7 +108,7 @@ func respawn():
 	jump_count = 0
 	update_health_ui()
 
-# ---------------- Coins/Souls ----------------
+# ---------------- Rewards ----------------
 func add_coin(amount: int = 1):
 	coins += amount
 	update_coin_ui()
@@ -123,11 +117,12 @@ func add_soul(amount: int = 1):
 	souls += amount
 	update_soul_ui()
 
-# ---------------- UI Updates ----------------
+# ---------------- UI ----------------
 func update_health_ui():
 	for i in range(1, max_hp + 1):
 		var heart_node = hearts_container.get_node("Heart %d" % i)
-		heart_node.visible = (i <= hp)
+		if heart_node:
+			heart_node.visible = i <= hp
 
 func update_coin_ui():
 	if coin_label:
