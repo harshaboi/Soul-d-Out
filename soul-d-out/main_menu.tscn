@@ -1,3 +1,15 @@
-[gd_scene load_steps=0 format=3 uid="uid://7g7ds0mfqbsd"]
+[gd_scene load_steps=2 format=3 uid="uid://c7a1etxw8u34f"]
+
+[ext_resource type="Texture2D" uid="uid://carje8rxdqnh2" path="res://fantasy-endless-hole-landscape.jpg" id="1_06t4h"]
 
 [node name="Main Menu" type="Node2D"]
+
+[node name="FantasyEndlessHoleLandscape" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_06t4h")
+
+[node name="Camera2D" type="Camera2D" parent="FantasyEndlessHoleLandscape"]
+position = Vector2(82.902, -101.00014)
+scale = Vector2(1.546, 1.546)
+offset = Vector2(-50, 300)
+zoom = Vector2(0.87, 0.87)

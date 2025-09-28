@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # ---------------- Movement ----------------
-var SPEED: float = 300.0 # constant because if has wrath, can be faster
+var SPEED: float = 300.0 # not constant because if has wrath, can be faster
 const JUMP_VELOCITY: float = -400.0
 const MAX_JUMPS: int = 2  # Double jump allowed
 var jump_count: int = 0

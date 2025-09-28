@@ -1,8 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dcc1hh0uraw5v"]
+[gd_scene load_steps=5 format=4 uid="uid://dmb0mc3ccsbni"]
 
-[ext_resource type="PackedScene" uid="uid://cxe7hmkp3idtp" path="res://Player.tscn" id="1_0xm2m"]
-[ext_resource type="Script" uid="uid://d0wfrlho248iw" path="res://main.gd" id="1_h2yge"]
-[ext_resource type="PackedScene" uid="uid://vkeb1t5ccjew" path="res://enemy.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://bb8ch54hftvgi" path="res://Player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" path="res://enemy.tscn" id="2_h2yge"]
 [ext_resource type="TileSet" uid="uid://ckku6y4sdceuy" path="res://Roguelike Dungeon - Asset Bundle/GroundTileSet.tres" id="5_lquwl"]
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("GroundLayer")]
