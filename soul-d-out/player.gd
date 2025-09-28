@@ -2,7 +2,7 @@
 extends CharacterBody2D
 
 # ---------------- Movement ----------------
-const SPEED: float = 300.0
+var SPEED: float = 300.0 # constant because if has wrath, can be faster
 const JUMP_VELOCITY: float = -400.0
 const MAX_JUMPS: int = 2  # Double jump allowed
 var jump_count: int = 0
@@ -31,7 +31,6 @@ var checkpoint_position: Vector2
 func _ready():
 	checkpoint_position = global_position
 	add_to_group("player")
-
 	if attack_area:
 		attack_area.monitoring = false
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
@@ -76,6 +75,9 @@ func _process(_delta):
 	# Attack input
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	if hasWrath:
+		SPEED = 400;
+		attack_damage = 2;
 
 # ---------------- Attack ----------------
 func attack():
