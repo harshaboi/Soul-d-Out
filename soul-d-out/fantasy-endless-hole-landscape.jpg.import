@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brehnnvwcgduf"
-path="res://.godot/imported/hellbg.jpeg-0325f0f18bc343c325c16e9bafde4d80.ctex"
+uid="uid://carje8rxdqnh2"
+path="res://.godot/imported/fantasy-endless-hole-landscape.jpg-7a32c238a6d913f0ff456b0a510a4eea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://hellbg.jpeg"
-dest_files=["res://.godot/imported/hellbg.jpeg-0325f0f18bc343c325c16e9bafde4d80.ctex"]
+source_file="res://fantasy-endless-hole-landscape.jpg"
+dest_files=["res://.godot/imported/fantasy-endless-hole-landscape.jpg-7a32c238a6d913f0ff456b0a510a4eea.ctex"]
 
 [params]
 

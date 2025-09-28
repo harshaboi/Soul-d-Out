@@ -8,6 +8,7 @@ const COINS_ON_DEATH: int = 5
 const SOULS_ON_DEATH: int = 1
 
 var hp: int = MAX_HP
+#var player: Node2D = null
 
 # ---------------- Node References ----------------
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -24,7 +25,7 @@ func _ready():
 
 	# Disable attack area initially
 	if attack_area:
-		attack_area.monitoring = false
+		attack_area.monitoring = true
 		attack_area.body_entered.connect(_on_attack_area_body_entered)
 
 	# Correct way to find the player in Godot 4
@@ -52,17 +53,26 @@ func take_damage(amount: int):
 	if hp <= 0:
 		die()
 	else:
+		# Optional: briefly activate attack area when hit
 		if attack_area:
 			attack_area.monitoring = true
+			await get_tree().create_timer(0.5).timeout
 
 
 # ---------------- Die ----------------
 func die():
+	var rng = RandomNumberGenerator.new()
 	if player:
 		if player.has_method("add_coin"):
-			player.add_coin(COINS_ON_DEATH)
+			if player.hasGreed:
+				player.add_coin(COINS_ON_DEATH + 3)
+			else:
+				player.add_coins(COINS_ON_DEATH)
 		if player.has_method("add_soul"):
-			player.add_soul(SOULS_ON_DEATH)
-
+			if player.hasGluttony:
+				player.add_soul(SOULS_ON_DEATH)
+			else:
+				player.add_soul(SOULS_ON_DEATH + (SOULS_ON_DEATH * rng.randi_range(0, 1)))
+	
 	emit_signal("died")
 	queue_free()

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # ---------------- Movement ----------------
-const SPEED: float = 300.0
+var SPEED: float = 300.0 # not constant because if has wrath, can be faster
 const JUMP_VELOCITY: float = -400.0
 const MAX_JUMPS: int = 2
 var jump_count: int = 0
@@ -12,6 +12,9 @@ var hp: int = 5
 var coins: int = 0
 var souls: int = 0
 var attack_damage: int = 1
+var hasGreed: bool = false
+var hasWrath: bool = false
+var hasGluttony: bool = false
 
 # ---------------- Respawn ----------------
 var checkpoint_position: Vector2
@@ -41,13 +44,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 	else:
 		jump_count = 0
-
 	# Jump
 	if Input.is_action_just_pressed("jump") and jump_count < MAX_JUMPS:
 		$MOVE.play()
 		velocity.y = JUMP_VELOCITY
 		jump_count += 1
-
 	# Movement (pass through enemies)
 	var direction = Input.get_axis("left", "right")
 	velocity.x = direction * SPEED
@@ -62,18 +63,19 @@ func _physics_process(delta: float) -> void:
 
 # ---------------- Process ----------------
 func _process(_delta):
-	# Animations
+	# Movement animation
 	if Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		sprite.play("walk")
 		$MOVE.play()
 	else:
 		sprite.play("idle")
-
-	# Attack
+	# Attack input
 	if Input.is_action_just_pressed("attack"):
 		attack()
+	if hasWrath:
+		SPEED = 400;
+		attack_damage = 2;
 
-# ---------------- Attack ----------------
 func attack():
 	$ATTACK.play()
 	if attack_area:
@@ -85,7 +87,7 @@ func attack():
 # ---------------- Attack Area Signal ----------------
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemy") and body.has_method("take_damage"):
-		body.take_damage(attack_damage)
+		body.take_damage(1)
 
 # ---------------- Damage ----------------
 func take_damage(amount: int):
@@ -96,6 +98,7 @@ func take_damage(amount: int):
 	update_health_ui()
 	if hp <= 0:
 		respawn()
+		sprite.play("death")
 
 # ---------------- Respawn ----------------
 func respawn():
@@ -105,7 +108,7 @@ func respawn():
 	update_health_ui()
 
 # ---------------- Coins/Souls ----------------
-func add_coin(amount: int = 1):
+func add_coins(amount: int = 1):
 	coins += amount
 	update_coin_ui()
 
