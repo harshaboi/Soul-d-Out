@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://qfl461q67qjq"]
+
+[ext_resource type="Script" uid="uid://bppc4j7hbguvx" path="res://intro.gd" id="1_7a8ye"]
+[ext_resource type="Texture2D" uid="uid://carje8rxdqnh2" path="res://fantasy-endless-hole-landscape.jpg" id="2_0a7ni"]
+[ext_resource type="Texture2D" uid="uid://c8cg1dfd3cdlk" path="res://Roguelike Dungeon - Asset Bundle/Roguelike Dungeon - Asset Bundle/Sprites/Bosses/Dungeon Master/DungeonMaster_Walk_0.png" id="3_y72e6"]
+
+[node name="INTRO" type="Node2D"]
+script = ExtResource("1_7a8ye")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 464.0
+offset_bottom = 278.0
+text = "Your soul belongs to me! Give me other soulds in order to survive."
+
+[node name="FantasyEndlessHoleLandscape" type="Sprite2D" parent="."]
+position = Vector2(357, 590)
+texture = ExtResource("2_0a7ni")
+
+[node name="DungeonMasterWalk0" type="Sprite2D" parent="."]
+position = Vector2(223, 401.5)
+scale = Vector2(1.5562501, 1.534375)
+texture = ExtResource("3_y72e6")

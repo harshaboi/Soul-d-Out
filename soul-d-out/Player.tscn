@@ -191,3 +191,4 @@ volume_db = 24.0
 [node name="TAKE DAMAGE" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("26_vd78s")
 volume_db = 24.0
+autoplay = true

@@ -28,3 +28,4 @@ tile_set = ExtResource("5_lquwl")
 stream = ExtResource("6_7mycd")
 volume_db = 24.0
 autoplay = true
+parameters/looping = true
